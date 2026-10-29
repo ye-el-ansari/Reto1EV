@@ -31,7 +31,7 @@ body {
 .top {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-end;
   padding: 10px;
 }
 
@@ -47,16 +47,18 @@ body {
 .topBot {
   display: flex;
   padding: 10px;
-  justify-content: flex-start;
+  justify-content: flex-end;
+  flex-wrap:wrap;
   align-items: flex-end;
   gap: 10px;
 }
 
-.topBot button {
+.topBot button , label{
   border: solid var(--bd) none;
   padding: 15px;
-  background-color: var(--bd);
-  margin: 10px
+  background-color: var(--wh);
+  margin: 10px;
+  flex-shrink:1;
 }
 
 .hero {
@@ -64,6 +66,7 @@ body {
   display: flex;
   gap: 30px;
   margin-left: 15px;
+  cursor:pointer;
 }
 
 .hero button {
@@ -160,6 +163,15 @@ footer {
   border-radius: 1em;
 }
 
+.them-toggle{
+  display:none;
+}
+
+.them-toggle:checked~.body {
+background-color: var(--b2);
+color: var(--wh);
+}
+
 .menu-toggle {
   display: none;
 }
@@ -195,20 +207,38 @@ footer {
   transform: rotate(-45deg) translate(5px, -6px);
 }
 
-@media(max-width:500px) {
+@media(max-width:590px) {
   .hamburger-btn {
     display: flex;
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
-
+    margin-right:auto;
+    margin-top:10px;
   }
   .hero{
     display:none;
   }
-  .menu-toggle:checked~.hero {
+  .topBot{
+    justify-content:flex-end;
+    align-items:flex-start;
+    padding:1px;
+    gap:2px;
+    width:100%;
+  }
+  .top{
+    flex-direction: column;
+  }
+  .menu-toggle:checked ~ .hero {
   display:flex ;
   flex-direction:column;
-  width:70%;
+  width:95%;
+}
+.container{
+  flex-direction:column;
+
+}
+.sidebar{
+  display:none;
 }
 }

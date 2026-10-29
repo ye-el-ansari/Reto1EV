@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+  
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechUp.com</title>
     <link rel="stylesheet" href="../CSS/estilos.css">
 </head>
+<body>
+     <input type="checkbox" id="them-toggle" class="them-toggle">
+     <div class="body">
 <header>
   <div class="wrap">
+     <input type="checkbox" id="menu-toggle" class="menu-toggle">
     <div class="top">
       <div class="logo" id="logoBtn"><img src="../IMAGES/logo.webp" width="100px" alt="Logo"></div>
+      
       <div class="topBot">
-        <button>👤 Mi cuenta</button>
-        <button id="cartBtn">🛒 Cesta (<span id="cartCount">0</span>)</button>
-        <button id="themeBtn" aria-pressed="false">🌙 Oscuro</button>
-      </div>
-    </div>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-
   <!-- Icono de hamburguesa vinculado al checkbox -->
   <label for="menu-toggle" class="hamburger-btn">
     <span></span>
     <span></span>
     <span></span>
   </label>
+        <button>👤 Mi cuenta</button>
+        <button id="cartBtn">🛒 Cesta (<span id="cartCount">0</span>)</button>
+        <label for="them-toggle" id="themeBtn" class="theme-btn">🌙 Oscuro</label>
+      </div>
+    </div>
 
     <div class="hero">
         <button class="cta" data-go="ordenadores">Inicio</button>
@@ -109,12 +113,12 @@
 
 </main>
 </div>
-</body>
+
 <div id="toast"></div>
 
 <footer>
  techUP · Mockup de la maquetación · Reto 1 DAW
 </footer>
-    
-</body>
+</div>
+    </body>
 </html>
