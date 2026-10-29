@@ -1,0 +1,52 @@
+body{
+    background-color:#f8f9fa;
+}
+div{
+    display:flex;
+    flex-direction:column;
+}
+main{
+    justify-items:center;
+    align-content:center;
+    height:500px;
+}
+button{
+    width:48%;
+    padding:15px 5px;
+    margin-left:0.5%;
+    margin-bottom:10px;
+    border-radius: 5px;
+    background-color:white;
+}
+input{
+    margin-bottom:10px;
+}
+/*.campos hacen referencia a los campos de correo y contraseña del formulario*/
+.campos{
+    width:93.5%;
+    padding:10px;
+    background-color:#f4f5f8;
+}
+#iniciarSesion{
+    background-color:#ff5500;
+    color:white;
+}
+
+#entrar{
+    width:97.5%;
+    background-color:#fd7d0b;
+    padding:15px 5px;
+}
+form{
+    width:30%;
+    border:1px solid black;
+    padding:30px;
+    border-radius:10px;
+    background-color:white;
+}
+p{
+    text-align:center;
+}
+.confirmarContraseña{
+    display:none;
+}
