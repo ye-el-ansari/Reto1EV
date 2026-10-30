@@ -13,7 +13,7 @@ main{
 button{
     width:48%;
     padding:15px 5px;
-    margin-left:0.5%;
+    margin-left:1%;
     margin-bottom:10px;
     border-radius: 5px;
     background-color:white;
@@ -27,18 +27,22 @@ input{
     padding:10px;
     background-color:#f4f5f8;
 }
+.usuario{
+    display:block;
+}
 #iniciarSesion{
     background-color:#ff5500;
     color:white;
 }
 
 #entrar{
+    margin-left:1.5%;
     width:97.5%;
     background-color:#fd7d0b;
     padding:15px 5px;
 }
 form{
-    width:30%;
+    width:20%;
     border:1px solid black;
     padding:30px;
     border-radius:10px;
