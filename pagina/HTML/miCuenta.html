@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi cuenta</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/miCuenta.css">
+</head>
+<body>
+    <main>
+        <!--Formulario para inicia sesión o registrarse-->
+        <form>
+            <button id="iniciarSesion">Iniciar sesion</button><button id="registrarse">Registrarse</button>
+            <div>
+            <label for="correo">Correo electrónico</label>
+            <input type="correo" id="correo" name="correo" class="campos">
+
+            <label for="contraseña">Contraseña</label>
+            <input type="password" id="contraseña" name="contraseña" class="campos">
+            <label for="confirmarContraseña" class="confirmarContraseña">Confirmar contraseña</label>
+            <input type="password" class="confirmarContraseña campos" name="confirmarContraseña">
+
+            <input type="submit" value="Entrar" id="entrar">
+            <p>Validación JS en cliente -- PHP guarda la sesión</p>
+            </div>
+            
+        </form>
+    </main>
+    <script src="../JS/miCuenta.js"></script>
+</body>
+</html>
