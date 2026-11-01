@@ -27,9 +27,6 @@ input{
     padding:10px;
     background-color:#f4f5f8;
 }
-.usuario{
-    display:block;
-}
 #iniciarSesion{
     background-color:#ff5500;
     color:white;
@@ -51,6 +48,33 @@ form{
 p{
     text-align:center;
 }
+.contraseña{
+    display:none;
+}
 .confirmarContraseña{
     display:none;
+}
+@media (max-width: 1000px) {
+    form{
+        width:40%;
+    }
+}
+@media (max-width: 500px) {
+    form{
+        width:80%;
+    }
+}
+@media (max-width: 300px) {
+    button{
+        font-size:4px;
+    }
+    label{
+        font-size:10px;
+    }
+    form{
+        width:60%;
+    }
+    .campos{
+        width:80%;
+    }
 }
