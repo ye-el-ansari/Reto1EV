@@ -37,11 +37,7 @@ header {
   padding:10px
 }
 
-.top {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: 10px;
+
 .top {
   display: flex;
   justify-content: flex-end;
