@@ -10,18 +10,19 @@
     <main>
         <!--Formulario para inicia sesión o registrarse-->
         <form>
-            <button id="iniciarSesion">Iniciar sesion</button><button id="registrarse">Registrarse</button>
+           <!--Los botones tienen que ser de tipo boton ya que si no el addEventListener del formulario de tipo submit se ejecutaría al clickar en cualquiera de los tres botones ya que por defecto estan en tipo submit-->
+            <button  type="button" id="iniciarSesion">Iniciar sesion</button><button type="button" id="registrarse">Registrarse</button>
             <div>
-            <label for="correo">Correo electrónico</label>
-            <input type="correo" id="correo" name="correo" class="campos">
-
-            <label for="contraseña">Contraseña</label>
-            <input type="password" id="contraseña" name="contraseña" class="campos">
+            <label for="usuario" class="usuario">Nombre de usuario</label>
+            <input type="correo" id="usuario" name="usuario" class="usuario campos">
+            <label for="correo" class="correo">Correo electrónico</label>
+            <input type="correo" id="correo" name="correo" class="correo campos">
+            <label for="contraseña" class="contraseña">Contraseña</label>
+            <input type="password" id="contraseña" name="contraseña" class="contraseña campos">
             <label for="confirmarContraseña" class="confirmarContraseña">Confirmar contraseña</label>
-            <input type="password" class="confirmarContraseña campos" name="confirmarContraseña">
+            <input type="password" class="confirmarContraseña campos" name="confirmarContraseña" id="confirmarContraseña">
 
-            <input type="submit" value="Entrar" id="entrar">
-            <p>Validación JS en cliente -- PHP guarda la sesión</p>
+            <input type="submit" value="Entrar" id="entrar" formaction="carrito.html">
             </div>
             
         </form>

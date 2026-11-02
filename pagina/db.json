@@ -108,5 +108,15 @@
 "descuento": "30%",
 "valoracion": 4.8
 }
+],
+"usuarios":[
+{
+    "id":1,
+    "contrasenia":"abc",
+    "nombre":"prueba",
+    "email":"prueba@email.com"
+}
 ]
 }
+
+   
