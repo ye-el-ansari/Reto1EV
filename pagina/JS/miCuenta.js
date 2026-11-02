@@ -43,16 +43,28 @@ iniciarSesion.addEventListener("click", function(e) {
         
 });
 /*Este evento lo que hace es que cuando clicke en el boton de entrar guarde los datos del usuario en el localStorage y si no hay ningun campo vacio envie el formulario, el e.preventDefault() lo que hace es que no se reinicie la pagina web el formulario por defectoy el e.target.submit() lo que hace es que se envie el formulario*/
-form.addEventListener("submit",function(e) {
-   e.preventDefault();
+form.addEventListener("submit",async function(e) {
+   e.target.submit();
         if(usuario[1].value && correo[1].value && contraseña[1].value && confirmarContraseña[1].value){
-           const datos={
+            const datos={
             "usuario":usuario[1].value,
             "correo":correo[1].value,
             "contraseña":contraseña[1].value
             };
-            localStorage.setItem("usuarios", JSON.stringify(datos));
-              e.target.submit();
+            const usuarios=await fetch("http://localhost:3000/usuarios",{
+                    method:"POST",
+                    headers:{
+                        "content-type":"application/json"
+                    },
+                    body:JSON.stringify(datos)
+                    
+            });
+            if(!usuarios.ok){
+                alert("No respondió el db.json");
+                return;
+            }
+            //localStorage.setItem("usuarios", JSON.stringify(datos));
+              
            
     }
 
