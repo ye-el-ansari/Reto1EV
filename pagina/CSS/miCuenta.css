@@ -54,6 +54,10 @@ p{
 .confirmarContraseña{
     display:none;
 }
+#error{
+    color:red;
+    display:none;
+}
 @media (max-width: 1000px) {
     form{
         width:40%;

@@ -5,7 +5,25 @@ const usuario = document.querySelectorAll(".usuario");
 const correo=document.querySelectorAll(".correo");
 const contraseña=document.querySelectorAll(".contraseña");
 const confirmarContraseña = document.querySelectorAll(".confirmarContraseña");
-let usuarios=localStorage.getItem("usuarios")||[];
+const error=document.getElementById("error");
+let conf=false;
+let usuarios=[];
+fetch("http://localhost:3000/usuarios")
+            .then(response=>{
+                if(!response.ok){
+                     alert("No respondió el db.json");
+                }
+                return response.json();})
+            .then(datos=>{
+                    for(let i=0;i<datos.length;i++){
+                    console.log(datos[i].usuario);
+                    if(datos[i].usuario===usuario[1].value&&datos[i].correo===correo[1].value){
+                        conf=true; 
+                    }
+                }
+                usuarios=datos;
+                
+            });
 /*Este evento lo que hace es que cuando clicke en registrar muestre el input y label de contraseña y confirmar contraseña y oculte el label e input de usuario, el e.preventDefault() lo que hace es que no se reinicie la pagina web el formulario por defecto*/
 registrarse.addEventListener("click", function(e) {
      usuario[1].value="";
@@ -28,6 +46,7 @@ iniciarSesion.addEventListener("click", function(e) {
         correo[1].value="";
         contraseña[1].value="";
         confirmarContraseña[1].value="";
+        error.style.display="none";
     e.preventDefault();
     iniciarSesion.style.boxShadow="0px 0px 10px 5px #ff5500";
     registrarse.style.boxShadow="";
@@ -44,14 +63,24 @@ iniciarSesion.addEventListener("click", function(e) {
 });
 /*Este evento lo que hace es que cuando clicke en el boton de entrar guarde los datos del usuario en el localStorage y si no hay ningun campo vacio envie el formulario, el e.preventDefault() lo que hace es que no se reinicie la pagina web el formulario por defectoy el e.target.submit() lo que hace es que se envie el formulario*/
 form.addEventListener("submit",async function(e) {
-   e.target.submit();
         if(usuario[1].value && correo[1].value && contraseña[1].value && confirmarContraseña[1].value){
             const datos={
             "usuario":usuario[1].value,
             "correo":correo[1].value,
             "contraseña":contraseña[1].value
             };
-            const usuarios=await fetch("http://localhost:3000/usuarios",{
+                    for(let i=0;i<usaurios.length;i++){
+                    if(usuarios[i].usuario===usuario[1].value&&usuarios[i].correo===correo[1].value){
+                        conf=true; 
+                    }
+                }
+                
+            if(conf){
+                    error.style.display="block";
+                    return;
+            }
+                e.target.submit();
+            await fetch("http://localhost:3000/usuarios",{
                     method:"POST",
                     headers:{
                         "content-type":"application/json"
@@ -59,13 +88,14 @@ form.addEventListener("submit",async function(e) {
                     body:JSON.stringify(datos)
                     
             });
-            if(!usuarios.ok){
-                alert("No respondió el db.json");
-                return;
-            }
-            //localStorage.setItem("usuarios", JSON.stringify(datos));
               
            
+    }else if(usuario[1].value && correo[1].value){
+        for(let i=0;i<usuarios.length;i++){
+            if(usuario[1].value===usuarios[i].usuario&&correo[1].value===usuarios[i].correo){
+                e.target.submit();
+            }
+        }
     }
 
 });
