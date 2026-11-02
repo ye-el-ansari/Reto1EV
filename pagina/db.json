@@ -7,7 +7,8 @@
 "imagen": "../IMAGES/logo.webp",
 "precio": "600€",
 "descuento": "17%",
-"valoracion": 4.8
+"valoracion": 4.8,
+"marca":"AMD"
 },
 {
 "id": "prod-002",
@@ -16,7 +17,8 @@
 "imagen": "../IMAGES/logo.webp",
 "precio": "850€",
 "descuento": "10%",
-"valoracion": 4.6
+"valoracion": 4.6,
+"marca":"intel"
 },
 {
 "id": "prod-003",
@@ -25,7 +27,8 @@
 "imagen": "../IMAGES/logo.webp",
 "precio": "999€",
 "descuento": "15%",
-"valoracion": 4.9
+"valoracion": 4.9,
+"marca":"AMD"
 },
 {
 "id": "prod-004",
@@ -34,7 +37,8 @@
 "imagen": "../IMAGES/logo.webp",
 "precio": "350€",
 "descuento": "5%",
-"valoracion": 4.3
+"valoracion": 4.3,
+"marca":"intel"
 },
 {
 "id": "prod-005",
@@ -43,7 +47,8 @@
 "imagen": "../IMAGES/logo.webp",
 "precio": "420€",
 "descuento": "12%",
-"valoracion": 4.8
+"valoracion": 4.8,
+"marca":"nvidida"
 },
 {
 "id": "prod-006",
@@ -52,7 +57,8 @@
 "imagen": "../IMAGES/logo.webp",
 "precio": "380€",
 "descuento": "8%",
-"valoracion": 4.9
+"valoracion": 4.9,
+"marca":"nvidia"
 },
 {
 "id": "prod-007",
@@ -61,7 +67,8 @@
 "imagen": "../IMAGES/logo.webp",
 "precio": "120€",
 "descuento": "20%",
-"valoracion": 4.7
+"valoracion": 4.7,
+"marca":"AMD"
 },
 {
 "id": "prod-008",
@@ -70,7 +77,8 @@
 "imagen": "../IMAGES/logo.webp",
 "precio": "140€",
 "descuento": "17%",
-"valoracion": 4.8
+"valoracion": 4.8,
+"marca":"intel"
 },
 {
 "id": "prod-009",
@@ -79,7 +87,8 @@
 "imagen": "../IMAGES/logo.webp",
 "precio": "210€",
 "descuento": "25%",
-"valoracion": 4.9
+"valoracion": 4.9,
+"marca":"AMD"
 },
 {
 "id": "prod-010",
@@ -88,7 +97,8 @@
 "imagen": "../IMAGES/logo.webp",
 "precio": "75€",
 "descuento": "17%",
-"valoracion": 4.8
+"valoracion": 4.8,
+"marca":"intel"
 },
 {
 "id": "prod-011",
@@ -97,7 +107,8 @@
 "imagen": "../IMAGES/logo.webp",
 "precio": "60€",
 "descuento": "15%",
-"valoracion": 4.7
+"valoracion": 4.7,
+"marca":"intel"
 },
 {
 "id": "prod-012",
@@ -106,7 +117,8 @@
 "imagen": "../IMAGES/logo.webp",
 "precio": "90€",
 "descuento": "30%",
-"valoracion": 4.8
+"valoracion": 4.8,
+"marca":"nvidia"
 }
 ],
 "usuarios":[
