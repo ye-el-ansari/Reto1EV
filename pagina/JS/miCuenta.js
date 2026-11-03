@@ -1,3 +1,6 @@
+if(localStorage.getItem("usuario")){
+    window.location="../HTML/carrito.html";
+}else{
 const iniciarSesion=document.getElementById("iniciarSesion");
 const registrarse = document.getElementById("registrarse");
 const form=document.querySelector("form");
@@ -102,4 +105,4 @@ form.addEventListener("submit",async function(e) {
     }
 
 });
-    
+}
