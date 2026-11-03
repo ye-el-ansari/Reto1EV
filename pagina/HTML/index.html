@@ -6,29 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="../CSS/home.css">
-    <script src="../JS/productos.js" defer></script>
+    <!-- <script src="../JS/productos.js" defer></script> -->
     <!-- <link rel="stylesheet" href="../CSS/estilos.css"> -->
 </head>
 
 <body>
-
+      <input type="checkbox" id="them-toggle" class="them-toggle" />
+    <div class="body">
+  
+    
+      
     <header>
+        
+
         <div class="logo" id="logoBtn">
             <img src="../IMAGES/logo.png" width="100px" alt="Logo" />
         </div>
-        <div class="navigation">
-            <div class="top">
-                <div class="topBot">
-                    <button id="btnLogin">👤 Mi cuenta</button>
-                    <button id="cartBtn">
-                        🛒 Cesta (<span id="cartCount">0</span>)
-                    </button>
+        <div class="topBot">
+
+
                     <label for="them-toggle" id="themeBtn" class="theme-btn">
                         <span class="moon">🌙 </span>
                         <span class="sun">☀️ </span>
                     </label>
                 </div>
-            </div>
+        <div class="navigation">
+            
             <div class="navigation-wraper">
                 <input type="checkbox" id="menu-toggle" class="menu-toggle" />
                 <!-- Icono de hamburguesa vinculado al checkbox -->
@@ -38,10 +41,13 @@
                     <span></span>
                 </label>
                 <div class="header-button">
-                    <button class="cta" data-go="ordenadores">Inicio</button>
-                    <button class="cta" data-go="ordenadores">💻Ordenadores</button>
-                    <button class="cta" data-go="componentes">⚙️Componentes</button>
-                    <button class="cta" data-go="perifericos">⌨️Periféricos</button>
+                    <button class="cta" data-go="ordenadores"> 
+                        <a href="productos.html"> 📦 Productos</a></button>
+                    <button class="cta" id="btnLogin">👤 Mi cuenta</button>
+                    <button class="cta" id="cartBtn">
+                        🛒 Cesta (<span id="cartCount">0</span>)
+                    </button>
+                
                 </div>
             </div>
         </div>
@@ -108,7 +114,7 @@
     <main class="wrap">
         <!-- SECCIÓN 1: Productos -->
         <section class="cards">
-            <div class="card">
+           <!-- <div class="card">
                 <img src="../IMAGES/logo.webp" />
                 <h3>nombre del producto</h3>
                 <h2 class="price">600€</h2>
@@ -136,6 +142,8 @@
                 <p class="discount">4.8</p>
                 <button>Anadir a la cesta</button>
             </div>
+
+            --> 
         </section>
     </main>
 
@@ -192,6 +200,8 @@
         </ul>
 
     </footer>
+    </div>
+    <script src="../JS/home.js" defer></script>
 </body>
 
 </html>
