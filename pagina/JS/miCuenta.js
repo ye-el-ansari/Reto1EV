@@ -8,6 +8,7 @@ const confirmarContraseña = document.querySelectorAll(".confirmarContraseña");
 const error=document.getElementById("error");
 let conf=false;
 let usuarios=[];
+
 fetch("http://localhost:3000/usuarios")
             .then(response=>{
                 if(!response.ok){

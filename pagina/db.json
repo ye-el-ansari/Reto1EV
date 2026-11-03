@@ -8,7 +8,7 @@
 "precio": "600€",
 "descuento": "17%",
 "valoracion": 4.8,
-"marca":"AMD"
+"marca":"amd"
 },
 {
 "id": "prod-002",
@@ -28,7 +28,7 @@
 "precio": "999€",
 "descuento": "15%",
 "valoracion": 4.9,
-"marca":"AMD"
+"marca":"amd"
 },
 {
 "id": "prod-004",
@@ -68,7 +68,7 @@
 "precio": "120€",
 "descuento": "20%",
 "valoracion": 4.7,
-"marca":"AMD"
+"marca":"amd"
 },
 {
 "id": "prod-008",
@@ -82,17 +82,17 @@
 },
 {
 "id": "prod-009",
-"tipo": "preferido",
+"tipo": "preferico",
 "nombre": "Monitor Gaming 27 165Hz IPS",
 "imagen": "../IMAGES/logo.webp",
 "precio": "210€",
 "descuento": "25%",
 "valoracion": 4.9,
-"marca":"AMD"
+"marca":"amd"
 },
 {
 "id": "prod-010",
-"tipo": "preferido",
+"tipo": "preferico",
 "nombre": "Teclado Mecánico RGB Switch Red",
 "imagen": "../IMAGES/logo.webp",
 "precio": "75€",
@@ -102,7 +102,7 @@
 },
 {
 "id": "prod-011",
-"tipo": "preferido",
+"tipo": "preferico",
 "nombre": "Ratón Inalámbrico Ultra-Light 26K DPI",
 "imagen": "../IMAGES/logo.webp",
 "precio": "60€",
@@ -112,7 +112,7 @@
 },
 {
 "id": "prod-012",
-"tipo": "preferido",
+"tipo": "preferico",
 "nombre": "Auriculares Gaming 7.1 Surround",
 "imagen": "../IMAGES/logo.webp",
 "precio": "90€",
@@ -129,4 +129,5 @@
     "email":"prueba@email.com"
 }
 ]
+
 }
