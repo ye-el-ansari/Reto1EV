@@ -48,7 +48,7 @@ async function cargarProductos() {
         boton.addEventListener('click', () => {
             
             // Traemos lo que ya haya en el carrito o empezamos de cero []
-            let carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
             
             // Añadimos este producto específico
             carrito.push(producto);
