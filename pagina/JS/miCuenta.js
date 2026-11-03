@@ -11,7 +11,7 @@ let usuarios=[];
 fetch("http://localhost:3000/usuarios")
             .then(response=>{
                 if(!response.ok){
-                     alert("No respondió el db.json");
+                     alert("No respondió el servidor");
                 }
                 return response.json();})
             .then(datos=>{
@@ -64,12 +64,13 @@ iniciarSesion.addEventListener("click", function(e) {
 /*Este evento lo que hace es que cuando clicke en el boton de entrar guarde los datos del usuario en el localStorage y si no hay ningun campo vacio envie el formulario, el e.preventDefault() lo que hace es que no se reinicie la pagina web el formulario por defectoy el e.target.submit() lo que hace es que se envie el formulario*/
 form.addEventListener("submit",async function(e) {
         if(usuario[1].value && correo[1].value && contraseña[1].value && confirmarContraseña[1].value){
+            e.preventDefault();
             const datos={
             "usuario":usuario[1].value,
             "correo":correo[1].value,
             "contraseña":contraseña[1].value
             };
-                    for(let i=0;i<usaurios.length;i++){
+                    for(let i=0;i<usuarios.length;i++){
                     if(usuarios[i].usuario===usuario[1].value&&usuarios[i].correo===correo[1].value){
                         conf=true; 
                     }
@@ -93,9 +94,11 @@ form.addEventListener("submit",async function(e) {
     }else if(usuario[1].value && correo[1].value){
         for(let i=0;i<usuarios.length;i++){
             if(usuario[1].value===usuarios[i].usuario&&correo[1].value===usuarios[i].correo){
+                localStorage.setItem("usuario",JSON.stringify(usuarios[i]));
                 e.target.submit();
             }
         }
+        
     }
 
 });
