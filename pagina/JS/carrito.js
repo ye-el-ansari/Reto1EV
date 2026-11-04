@@ -11,22 +11,7 @@ carritoJson.forEach(carrito=>{
     <p>${carrito.precio}</p>
     </div>
     </div>
-    <style>
-    #divSection{
-    width:100%;
-        margin-left:20%;
-        height:100px;
-        display:flex;
-        margin-bottom:20px;
-        border-bottom:1px solid black;
-    }
-    img{
-    height:100%;
-}
-    #divTexto{
-        width:fit-content;
-        margin-left:5%;
-    }`;
+    `
     precioTotal+=parseFloat(carrito.precio.replace("€",""));
 });
 /*Si el array donde se guardan las ids de los productos no tiene datos aparece un mensaje de que no hay productos en la seccion si no se hace un bucle que recorra cada id y en cada id que recorra los productos si el id es el mismo que el id del producto muestra el nombre, la imagen, el precio, y el descuento del producto */

@@ -9,19 +9,119 @@
 </head>
 
 <body>
-    <div class="padre">
 
-        <section>
-        </section>
+    <input type="checkbox" id="them-toggle" class="them-toggle" />
+    <div class="body">
 
-        <div id="divCestaContent">
-            <h1>Carrito</h1>
-        <div id="divCesta">
-            
-            <!-- <button id="btnCesta" class="btnCarrito">Cesta</button>-->
-            
+
+
+        <header>
+
+
+            <div class="logo" id="logoBtn">
+                <img src="../IMAGES/logo.png" width="100px" alt="Logo" />
+            </div>
+            <div class="topBot">
+
+
+                <label for="them-toggle" id="themeBtn" class="theme-btn">
+                    <span class="moon">🌙 </span>
+                    <span class="sun">☀️ </span>
+                </label>
+            </div>
+            <div class="navigation">
+
+                <div class="navigation-wraper">
+                    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+                    <!-- Icono de hamburguesa vinculado al checkbox -->
+                    <label for="menu-toggle" class="hamburger-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                    <div class="header-button">
+                        <button class="cta" data-go="ordenadores">
+                            <a href="productos.html"> 📦 Productos</a></button>
+                        <button class="cta" id="btnLogin">👤 Mi cuenta</button>
+                        <button class="cta" id="cartBtn"><a href="miCuenta.html">
+                                🛒 Cesta </a>(<span id="cartCount">0</span>)
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+
+        <div class="padre">
+
+            <section>
+            </section>
+
+            <div id="divCestaContent">
+                <h1>Carrito</h1>
+                <div id="divCesta">
+
+                    <!-- <button id="btnCesta" class="btnCarrito">Cesta</button>-->
+
+                </div>
+            </div>
         </div>
-</div>
+
+        <footer>
+
+            <ul>
+                <li><strong>Por que comprar</strong></li>
+                <li> <a href="">Como comprar</a></li>
+                <li> <a href="">Formas de pago</a></li>
+                <li> <a href="">Gastos de envio</a></li>
+                <li> <a href="">Cupones descuento</a></li>
+                <li> <a href="">Preguntas frecuentes</a></li>
+
+            </ul>
+
+            <ul>
+                <li><strong>Quienes somos</strong></li>
+                <li> <a href="">Quienes somos</a></li>
+                <li> <a href="">Compromisos</a></li>
+                <li> <a href="">Nuestras tiendas</a></li>
+                <li> <a href="">Afiliados</a></li>
+                <li> <a href="">Aviso legal</a></li>
+
+            </ul>
+
+            <ul>
+                <li><strong>Contactar</strong></li>
+                <li> <a href="">Contacto</a></li>
+                <li> <a href="">Devoluciones y garantias</a></li>
+                <li> <a href="">Opina</a></li>
+                <li> <a href="">Trabaja con nosotros</a></li>
+                <li> <a href="">Hazte distribuidor</a></li>
+
+            </ul>
+
+            <ul>
+                <li><strong>Otros</strong></li>
+                <li> <a href="">Black Friday</a></li>
+                <li> <a href="">Cyber Monday</a></li>
+                <li> <a href="">Servicio de reparación</a></li>
+                <li> <a href="">Cita asistencia técnica</a></li>
+                <li> <a href="">Marketplace</a></li>
+
+            </ul>
+
+            <ul>
+                <li><strong>Comunidad</strong></li>
+                <li> <a href="">Blog</a></li>
+                <li> <a href="">Instagram</a></li>
+                <li> <a href="">Twitter</a></li>
+                <li> <a href="">Youtube</a></li>
+                <li> <a href="">Tiktok</a></li>
+
+            </ul>
+
+        </footer>
     </div>
 </body>
 <script src="../JS/carrito.js"></script>
