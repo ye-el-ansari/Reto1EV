@@ -7,13 +7,12 @@
     <link rel="stylesheet" type="text/css" href="../CSS/miCuenta.css">
 </head>
 <body>
-      <input type="checkbox" id="them-toggle" class="them-toggle" />
+      
     <div class="body">
     
     <main class="auth-main">
         <!-- Formulario para iniciar sesión o registrarse -->
         <form class="auth-card">
-            
             <!-- Selector de pestañas -->
             <div class="tabs-container">
                 <button type="button" id="iniciarSesion" class="tab-btn active">Iniciar sesión</button>
@@ -24,32 +23,32 @@
                 <!-- Nombre de Usuario -->
                 <div class="field-group usuario">
                     <label for="usuario" class="usuario">Nombre de usuario</label>
-                    <input type="correo" id="usuario" name="usuario" class="usuario campos" placeholder="Ej. juan123">
+                    <input type="correo" id="usuario" name="usuario" class="usuario campos" placeholder="Ej. juan123" required >
                 </div>
 
                 <!-- Correo -->
                 <div class="field-group correo">
                     <label for="correo" class="correo">Correo electrónico</label>
-                    <input type="correo" id="correo" name="correo" class="correo campos" placeholder="ejemplo@correo.com">
+                    <input type="correo" id="correo" name="correo" class="correo campos" placeholder="ejemplo@correo.com" required >
                 </div>
 
                 <!-- Contraseña -->
                 <div class="field-group contrasenia">
                     <label for="contrasenia" class="contrasenia">Contraseña</label>
-                    <input type="password" id="contrasenia" name="contrasenia" class="contrasenia campos" placeholder="••••••••">
+                    <input type="password" id="contrasenia" name="contrasenia" class="contrasenia campos" placeholder="••••••••" required >
                 </div>
 
                 <!-- Confirmar Contraseña -->
                 <div class="field-group confirmarContrasenia">
                     <label for="confirmarContrasenia" class="confirmarContrasenia">Confirmar contraseña</label>
-                    <input type="password" id="confirmarContrasenia" name="confirmarContrasenia" class="confirmarContrasenia campos" placeholder="••••••••">
+                    <input type="password" id="confirmarContrasenia" name="confirmarContrasenia" class="confirmarContrasenia campos" placeholder="••••••••" required >
                 </div>
 
                 <!-- Mensaje de error -->
-                <p id="error">El usuario o correo introducidos están en uso</p>
+                <p id="error"></p>
 
                 <!-- Acciones Principales -->
-                <input type="submit" value="Entrar" id="entrar" formaction="carrito.html">
+                <input type="submit" value="Iniciar" id="entrar" >
 
                 <!-- Acciones Secundarias de Cuenta -->
                 <div class="account-actions">
