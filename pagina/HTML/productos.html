@@ -1,127 +1,273 @@
-<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TechUp.com</title>
-    <link rel="stylesheet" href="../CSS/estilos.css" />
-  </head>
-  <body>
-    <input type="checkbox" id="them-toggle" class="them-toggle" />
-    <div class="body">
-      <header>
-        <div class="logo" id="logoBtn">
-          <img src="../IMAGES/logo.png" width="100px" alt="Logo" />
-        </div>
-        <div class="navigation">
-          <div class="top">
-            <div class="topBot">
-              <button id="btnLogin">👤 Login</button>
-              <button id="cartBtn">
-                🛒 Cesta (<span id="cartCount">0</span>)
-              </button>
-              <label for="them-toggle" id="themeBtn" class="theme-btn">
-                <span class="moon">🌙 </span>
-                <span class="sun">☀️ </span>
-              </label>
-            </div>
-          </div>
-          <div class="navigation-wraper">
-            <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-            <!-- Icono de hamburguesa vinculado al checkbox -->
-            <label for="menu-toggle" class="hamburger-btn">
-              <span></span>
-              <span></span>
-              <span></span>
-            </label>
-            <div class="header-button" id="header-button">
-              <button class="cta" data-go="inicio">Inicio</button>
-              <button class="cta" data-go="ordenadores">💻Ordenadores</button>
-              <button class="cta" data-go="componentes">⚙️Componentes</button>
-              <button class="cta" data-go="perifericos">⌨️Periféricos</button>
-            </div>
-          </div>
-        </div>
-      </header>
-      <div class="container">
-        <aside class="sidebar">
-          <!-- Sección Marca -->
-          <fieldset class="filter-grupo">
-            <legend class="filter-title">Filter</legend>
-            <legend class="filter-title">Marca</legend>
 
-            <label class="filter-option">
-              <input type="checkbox" name="marca" value="nvidia" />
-              <span>NVIDIA</span>
-            </label>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechUp.com</title>
+  <link rel="stylesheet" href="../CSS/estilos.css">
+</head>
 
-            <label class="filter-option">
-              <input type="checkbox" name="marca" value="amd" />
-              <span>AMD</span>
-            </label>
-
-            <label class="filter-option">
-              <input type="checkbox" name="marca" value="intel" />
-              <span>Intel</span>
-            </label>
-
-            <!-- Sección Categoría -->
-
-            <legend class="filter-title">Categoría</legend>
-
-            <label class="filter-opcion">
-              <input type="checkbox" name="categoria" value="graficas" />
-              <span>Gráficas</span>
-            </label>
-
-            <label class="filter-opcion">
-              <input type="checkbox" name="categoria" value="procesadores" />
-              <span>Procesadores</span>
-            </label>
-
-            <label class="filter-opcion">
-              <input type="checkbox" name="categoria" value="ram" />
-              <span>RAM</span>
-            </label>
-
-            <!-- Sección Precio -->
-
-            <legend class="filter-title">Precio</legend>
-            <label class="filter-opcion">
-              <input type="checkbox" name="precio" value="menor" />
-              <span> < 200€</span>
-            </label>
-
-            <label class="filter-opcion">
-              <input type="checkbox" name="precio" value="entre" />
-              <span> < 200€-500€</span>
-            </label>
-
-            <label class="filter-opcion">
-              <input type="checkbox" name="precio" value="mayor" />
-              <span> > 500€</span>
-            </label>
-          </fieldset>
-        </aside>
-        <main class="wrap">
-          <!-- SECCIÓN 1: Productos -->
-          <section class="cards">
-            <div class="card">
-              <img src="../IMAGES/logo.webp" />
-              <h3>nombre del producto</h3>
-              <h2 class="price">600€</h2>
-              <p class="discount">4.8</p>
-              <button>Anadir a la cesta</button>
-            </div>
-          
-          </section>
-        </main>
+<body>
+  <input type="checkbox" id="them-toggle" class="them-toggle">
+  <div class="body">
+    <header>
+      <div class="logo" id="logoBtn">
+        <img src="../IMAGES/logo.png" width="100px" alt="Logo">
       </div>
-      <script src="../JS/productos.js" type="module"></script>
+      <div class="topBot">
+        <button id="btnLogin">👤 Login</button>
+        <button id="cartBtn">
+          🛒 Cesta (<span id="cartCount">0</span>)
+        </button>
+        <label for="them-toggle" id="themeBtn" class="theme-btn">
+          <span class="moon">🌙 </span>
+          <span class="sun">☀️ </span>
+        </label>
+      </div>
+      <div class="navigation">
 
-      <div id="toast"></div>
+        <div class="navigation-wraper">
+          <input type="checkbox" id="menu-toggle" class="menu-toggle">
+          <!-- Icono de hamburguesa vinculado al checkbox -->
+          <label for="menu-toggle" class="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+          <div class="header-button" id="header-button">
+            <button class="cta" data-go="inicio">Inicio</button>
+            <button class="cta" data-go="ordenadores">💻Ordenadores</button>
+            <button class="cta" data-go="componentes">⚙️Componentes</button>
+            <button class="cta" data-go="perifericos">⌨️Periféricos</button>
+          </div>
+        </div>
 
-      <footer>techUP · Mockup de la maquetación · Reto 1 DAW</footer>
+      </div>
+    </header>
+    <div class="container">
+      <aside class="sidebar">
+        <!-- Sección Marca -->
+        <fieldset class="filter-grupo">
+          <legend class="filter-title">Filter</legend>
+          <legend class="filter-title">Marca</legend>
+
+          <label class="filter-option">
+            <input type="checkbox" name="marca" value="nvidia">
+            <span>NVIDIA</span>
+          </label>
+
+          <label class="filter-option">
+            <input type="checkbox" name="marca" value="amd">
+            <span>AMD</span>
+          </label>
+
+          <label class="filter-option">
+            <input type="checkbox" name="marca" value="intel">
+            <span>Intel</span>
+          </label>
+
+          <!-- Sección Categoría -->
+
+          <legend class="filter-title">Categoría</legend>
+
+          <label class="filter-opcion">
+            <input type="checkbox" name="categoria" value="graficas">
+            <span>Gráficas</span>
+          </label>
+
+          <label class="filter-opcion">
+            <input type="checkbox" name="categoria" value="procesadores">
+            <span>Procesadores</span>
+          </label>
+
+          <label class="filter-opcion">
+            <input type="checkbox" name="categoria" value="ram">
+            <span>RAM</span>
+          </label>
+
+          <!-- Sección Precio -->
+
+          <legend class="filter-title">Precio</legend>
+          <label class="filter-opcion">
+            <input type="checkbox" name="precio" value="menor">
+            <span> &lt; 200€</span>
+          </label>
+
+          <label class="filter-opcion">
+            <input type="checkbox" name="precio" value="entre">
+            <span> &lt; 200€-500€</span>
+          </label>
+
+          <label class="filter-opcion">
+            <input type="checkbox" name="precio" value="mayor">
+            <span> &gt; 500€</span>
+          </label>
+        </fieldset>
+      </aside>
+      <main class="wrap">
+        <!-- SECCIÓN 1: Productos -->
+        <section class="cards">
+          <div class="card"><img src="../IMAGES/OrdenadorGamingTechUpExtremeR5.webp">
+            <h3>Ordenador Gaming TechUp Extreme R5</h3>
+            <h2 class="price">600€</h2>
+            <p class="discount">17%</p><button></button>
+          </div>
+          <div class="card"><img src="../IMAGES/logo.webp">
+            <h3>PC Sobremesa Workstation Pro i7</h3>
+            <h2 class="price">850€</h2>
+            <p class="discount">10%</p><button></button>
+          </div>
+          <div class="card"><img src="../IMAGES/logo.webp">
+            <h3>Portátil Gaming Stealth 15</h3>
+            <h2 class="price">999€</h2>
+            <p class="discount">15%</p><button></button>
+          </div>
+          <div class="card"><img src="../IMAGES/logo.webp">
+            <h3>Mini PC Compact Essential</h3>
+            <h2 class="price">350€</h2>
+            <p class="discount">5%</p><button></button>
+          </div>
+          <div class="card"><img src="../IMAGES/logo.webp">
+            <h3>Tarjeta Gráfica RTX 4060 Ti 8GB</h3>
+            <h2 class="price">420€</h2>
+            <p class="discount">12%</p><button></button>
+          </div>
+          <div class="card"><img src="../IMAGES/logo.webp">
+            <h3>Procesador Ryzen 7 7800X3D</h3>
+            <h2 class="price">380€</h2>
+            <p class="discount">8%</p><button></button>
+          </div>
+          <div class="card"><img src="../IMAGES/Memoria_RAM_DDR5_32GB_(2x16GB)_6000MHz.webp">
+            <h3>Memoria RAM DDR5 32GB (2x16GB) 6000MHz</h3>
+            <h2 class="price">660€</h2>
+            <p class="discount">20%</p><button></button>
+          </div>
+          <div class="card"><img src="../IMAGES/DiscoSSDM.2NVMe2TBGen44.webp">
+            <h3>Disco SSD M.2 NVMe 2TB Gen4</h3>
+            <h2 class="price">140€</h2>
+            <p class="discount">17%</p><button></button>
+          </div>
+          <div class="card"><img src="../IMAGES/MonitorGaming27165HzIPS.webp">
+            <h3>Monitor Gaming 27 165Hz IPS</h3>
+            <h2 class="price">210€</h2>
+            <p class="discount">25%</p><button></button>
+          </div>
+          <div class="card"><img src="../IMAGES/TecladoMecánicoRGBSwitchRed.webp">
+            <h3>Teclado Mecánico RGB Switch Red</h3>
+            <h2 class="price">75€</h2>
+            <p class="discount">17%</p><button></button>
+          </div>
+          <div class="card"><img src="../IMAGES/RatónInalámbricoUltra-Light26KDPI.webp">
+            <h3>Ratón Inalámbrico Ultra-Light 26K DPI</h3>
+            <h2 class="price">60€</h2>
+            <p class="discount">15%</p><button></button>
+          </div>
+          <div class="card"><img src="../IMAGES/Auriculares_Gaming_7_1Surround.jpg">
+            <h3>Auriculares Gaming 7.1 Surround</h3>
+            <h2 class="price">90€</h2>
+            <p class="discount">30%</p><button></button>
+          </div>
+        </section>
+      </main>
     </div>
-  </body>
+    <script src="../JS/productos.js" type="module"></script>
+
+    <div id="toast"></div>
+
+    <footer>
+
+      <ul>
+        <li><strong>Por que comprar</strong></li>
+        <li> <a href="">Como comprar</a></li>
+        <li> <a href="">Formas de pago</a></li>
+        <li> <a href="">Gastos de envio</a></li>
+        <li> <a href="">Cupones descuento</a></li>
+        <li> <a href="">Preguntas frecuentes</a></li>
+
+      </ul>
+
+      <ul>
+        <li><strong>Quienes somos</strong></li>
+        <li> <a href="">Quienes somos</a></li>
+        <li> <a href="">Compromisos</a></li>
+        <li> <a href="">Nuestras tiendas</a></li>
+        <li> <a href="">Afiliados</a></li>
+        <li> <a href="">Aviso legal</a></li>
+
+      </ul>
+
+      <ul>
+        <li><strong>Contactar</strong></li>
+        <li> <a href="">Contacto</a></li>
+        <li> <a href="">Devoluciones y garantias</a></li>
+        <li> <a href="">Opina</a></li>
+        <li> <a href="">Trabaja con nosotros</a></li>
+        <li> <a href="">Hazte distribuidor</a></li>
+
+      </ul>
+
+      <ul>
+        <li><strong>Otros</strong></li>
+        <li> <a href="">Black Friday</a></li>
+        <li> <a href="">Cyber Monday</a></li>
+        <li> <a href="">Servicio de reparación</a></li>
+        <li> <a href="">Cita asistencia técnica</a></li>
+        <li> <a href="">Marketplace</a></li>
+
+      </ul>
+
+      <ul>
+        <li><strong>Comunidad</strong></li>
+        <li> <a href="">Blog</a></li>
+        <li> <a href="">Instagram</a></li>
+        <li> <a href="">Twitter</a></li>
+        <li> <a href="">Youtube</a></li>
+        <li> <a href="">Tiktok</a></li>
+
+      </ul>
+
+    </footer>
+  </div>
+  <!-- Code injected by live-server -->
+  <script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+    // ]]>
+  </script>
+
+
+</body>
+
 </html>
