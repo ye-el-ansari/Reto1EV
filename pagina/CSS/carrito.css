@@ -1,42 +1,520 @@
-body{
-    background-color:#f8f9fa;
+:root {
+    /* Colores */
+    color-scheme: light;
+    --color-background: #f8f9fa;
+    --color-surface: #ffffff;
+    --color-text: #12151e;
+    --color-text-muted: #6c757d;
+    --color-border: #e9ecef;
+
+    /* Colores de marca */
+    --color-primary: #ff5500;
+    --color-primary-hover: #e64d00;
+    --color-danger: #dc3545;
+
+    /* Diseño */
+    --border-radius: 12px;
+    --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.06);
+
 }
-#btnCarrito{
-    color:#ffffff;
-    background-color:#FF5500;
-    border-radius:10px;
-    padding:20px 20px;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Calibri;
+    color: var(--color-text);
 }
-#btnCesta{
-    color:black;
-    background-color:#ffffff;
+
+
+.body {
+    background-color: var(--color-background);
+}
+
+/* ------- HEADER ------- */
+header {
+    position: relative;
+    background-color: var(--color-surface);
+    padding: 10px
+}
+
+.top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+.logo {
+    position: absolute;
+    left: 55px;
+    top: 20px;
+}
+
+.logo img {
+    /* width: clamp(50px, 100px, 150px); */
+    display: block;
+    height: 100px;
+    width: 130px;
+    border-radius: var(--border-radius);
+}
+
+.topBot {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 5px;
+    position: static;
+    left: 0;
+    right: 0;
+    top: 10px;
+}
+
+.topBot button,
+.topBot label {
+    border: none;
+    padding: 10px;
+    margin: 10px 5px;
+    cursor: pointer;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+
+    box-shadow: var(--shadow-card);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.3s ease;
+}
+
+.topBot button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text)
+}
+
+.header-button {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-left: 15px;
+}
+
+.header-button button {
+    background-color: var(--color-background);
+    border: none;
+    padding: 10px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+
+    box-shadow: var(--shadow-card);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.3s ease;
+}
+
+.header-button button:hover {
+    background-color: var(--color-primary-hover);
+    border-radius: 30px;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(230, 124, 25, 0.12);
+
+}
+
+.theme-btn .sun {
+    display: none;
+}
+
+.them-toggle:checked~.body {
+    color-scheme: dark;
+
+    --color-background: #1c202b;
+    --color-surface: #292e3b;
+    --color-text: #ffffff;
+    --color-muted: #b0b6c3;
+    --color-border: #414755;
+}
+
+.them-toggle {
+    display: none;
+}
+
+.them-toggle:checked~.body .theme-btn .moon {
+    display: none;
+}
+
+.them-toggle:checked~.body .theme-btn .sun {
+    display: inline;
+    color: var(--color-text);
+}
+
+.them-toggle:checked~.body {
+    background-color: var(--color-background);
+    color: var(--color-background);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.hamburger-btn {
+    display: none;
+    cursor: pointer;
+    /* position: fixed; */
+    margin-bottom: 10px;
+}
+
+.hamburger-btn:hover {
+    transition: transform 0.6s ease;
+    transform: translateY(-3px);
+}
+
+.hamburger-btn span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-text);
+    transition: all 0.3s ease;
+}
+
+/* Convertir la hamburguesa en una 'X' para salir */
+.menu-toggle:checked~.hamburger-btn span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.menu-toggle:checked~.hamburger-btn span:nth-child(2) {
+    opacity: 0;
+    /* Desaparece la línea del centro */
+}
+
+.menu-toggle:checked~.hamburger-btn span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+
+
+
+body {
+    background-color: #f8f9fa;
+}
+
+
+/* -------------  CARRITO -----------*/
+/* -------------  CARRITO -----------*/
+
+
+#divSection {
+    width: 100%;
+    margin-left: 20%;
+    height: 100px;
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--color-text);
+}
+
+#btnCarrito {
+    color: var(--color-text);
+    background-color: #FF5500;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+   img{
+    height:100%;
+}
+
+#divTexto{
+        width:fit-content;
+        margin-left:5%;
+    }
+#btnCesta {
+    color: var(--color-text);
+    background-color: var(--color-surface);
     box-shadow: 0px 0px 5px #6c757d;
-    border-radius:5px;
-    padding:10px 40px;
+    border-radius: 5px;
+    padding: 10px 40px;
 }
-section{
-    min-height:500px;
-    display:flex;
-    flex-direction:column;
-    border:1px solid black;
+
+section {
+    margin-top: 70px;
+    /* min-height: 100px; */
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    justify-self: center;
+    align-items: center;
 }
-div{
-    min-height:100px;
-    border:1px solid black;
-}
-#divCarrito{
-    width:100%;
-    border:0;
+
+#divCarrito {
+    width: 100%;
+    border: 0;
     text-align: center;
-    height:50px;
-    min-height:50px;
-    align-items:center;
+    height: 50px;
+    min-height: 50px;
+    align-items: center;
+    justify-content: space-around;
+    height: 300px;
 }
-#divCesta{
-    text-align:right;
-    border:0;
-    height:50px;
-    min-height:50px;
-    margin-right:10px;
-    margin-top:30px;
+
+#divCesta {
+    margin-top: 25px;
+    text-align: center;
+    border: 0;
+    height: 500px;
+    /* min-height:50px; */
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    /* justify-content: center; */
+    align-items: center;
+    padding-top: 20px;
+    width: 70%;
+    border-top: 1px solid var(--color-text);
+    /* border-bottom:1px solid black; */
+}
+
+.padre {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#divCestaContent {
+    margin-top: 30px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+
+.sep {
+    text-align: center;
+    font-family: Calibri;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.borde {
+    text-align: center;
+    font-family: Calibri;
+    display: flex;
+    border-top: dotted gray 2px;
+    width: 65%;
+    align-self: center;
+}
+
+
+
+
+/* ----------- FOOTER ----------- */
+footer {
+    margin-top: 50px;
+    background-color: var(--color-background);
+    height: 370px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+footer>ul {
+
+    list-style: none;
+    margin: 30px 20px 20px 20px;
+
+}
+
+footer>ul>li {
+
+    margin: 10px;
+    font-size: 14px;
+    color: rgb(74, 74, 74);
+}
+
+footer>ul>li>a:hover {
+    border-bottom: 1px solid rgb(74, 74, 74);
+}
+
+footer>ul>li>a {
+    text-decoration: none;
+    color: rgb(74, 74, 74);
+}
+
+footer>ul>li>strong {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* ----------- MEDIA QUERIES ----------- */
+@media(max-width:790px) {
+
+    /* ----------- HEADER ----------- */
+    /* ----------- HEADER ----------- */
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+    }
+
+    .navigation-wraper {
+        width: 100%;
+        margin: 15px;
+        align-self: end;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .header-button {
+        display: none;
+        perspective: 500px;
+        transition: transform 0.4s ease;
+
+    }
+
+    .header-button button {
+        height: 50px;
+    }
+
+    .menu-toggle:checked~.header-button {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+    }
+
+
+    .topBot {
+        position: absolute;
+        right: unset;
+        left: 0;
+        top: 100px;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 1px;
+        gap: 2px;
+        margin: 5px;
+    }
+
+    .logo {
+        position: static;
+        display: block;
+    }
+
+    .top {
+        flex-direction: column;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .topBot button,
+    .topBot label {
+        padding: 5px;
+
+    }
+
+
+    /* -------------  CARRITO -----------*/
+    /* -------------  CARRITO -----------*/
+    .padre {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    section {
+        margin-top: 70px;
+        /* min-height: 100px; */
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        justify-self: center;
+        align-items: center;
+    }
+
+    #divCestaContent {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #btnCarrito {
+        color: #ffffff;
+        background-color: #FF5500;
+        border-radius: 10px;
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    #divCesta {
+        text-align: center;
+        border: 0;
+        height: 170px;
+        /* min-height:50px; */
+        margin-right: 10px;
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        /* justify-content: center; */
+        align-items: center;
+        /* margin-top:30px; */
+        width: 80%;
+        border-top: 1px solid black;
+        /* border-bottom:1px solid black; */
+    }
+
+    /* ----------- FOOTER ----------- */
+    /* ----------- FOOTER ----------- */
+    footer {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 50px;
+        padding: 0px 20px 0px 20px;
+        height: 100%;
+
+    }
+
+    footer>ul {
+        flex-wrap: wrap;
+        text-align: left;
+        list-style: none;
+        margin: 10px 20px 10px 20px;
+        width: 30%;
+
+    }
 }
