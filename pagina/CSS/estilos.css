@@ -16,7 +16,7 @@
   --border-radius: 12px;
   --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.06);
 
-}
+} 
 
 * {
   box-sizing: border-box;
@@ -98,13 +98,12 @@ header {
   margin-left: 15px;
   cursor: pointer;
 
-
 }
 
 .header-button button {
   background-color: var(--color-background);
   border: none;
-  padding: 10px;
+  width:100%;
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
@@ -294,6 +293,7 @@ footer {
   height: 3px;
   background-color: var(--color-text);
   transition: all 0.3s ease;
+
 }
 
 /* Convertir la hamburguesa en una 'X' para salir */
@@ -318,7 +318,7 @@ footer {
   }
 
   .navigation-wraper {
-    width: 100%;
+
     margin: 0 15px;
     align-self: end;
     display: flex;
@@ -330,12 +330,14 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 5px;
+   
   }
 
   .header-button {
     display: none;
     perspective: 500px;
     transition: transform 0.4s ease;
+    width:100%
 
   }
   .header-button button{
@@ -354,6 +356,7 @@ footer {
     padding: 1px;
     gap: 2px;
     margin: 5px;
+    
 
   }
   .logo{
@@ -362,6 +365,7 @@ footer {
   }
   .top {
     flex-direction: column;
+  
   }
 header{
   display:flex;

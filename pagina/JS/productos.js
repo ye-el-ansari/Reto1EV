@@ -27,10 +27,19 @@ async function iniciar() {
     esLogeado()? btnLogin.textContent="Logout":"";
 
 }
-function esLogeado(){
-const storage=localStorage.getItem("usuario");
-usuario=JSON.parse(storage);
-return storage!==null;
+
+function esLogeado() {
+    const storage = localStorage.getItem("usuario");
+    if (!storage) return false;
+    
+    try {
+        usuario = JSON.parse(storage);
+        return true;
+    } catch (e) {
+        localStorage.removeItem("usuario");
+        usuario = null;
+        return false;
+    }
 }
 
 function crearCards(productos) {
@@ -186,6 +195,7 @@ btnLogin.addEventListener("click", () => {
   if (esLogeado()) {
     localStorage.removeItem("usuario");
     btnLogin.textContent = "Login";
+    countCesta.textContent=0;
     alert("Has cerrado sesión");
   } else {
     

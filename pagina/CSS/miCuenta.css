@@ -1,84 +1,190 @@
-body{
-    background-color:#f8f9fa;
-}
-div{
-    display:flex;
-    flex-direction:column;
-}
-main{
-    justify-items:center;
-    align-content:center;
-    height:500px;
-}
-button{
-    width:48%;
-    padding:15px 5px;
-    margin-left:1%;
-    margin-bottom:10px;
-    border-radius: 5px;
-    background-color:white;
-}
-input{
-    margin-bottom:10px;
-}
-/*.campos hacen referencia a los campos de correo y contraseña del formulario*/
-.campos{
-    width:93.5%;
-    padding:10px;
-    background-color:#f4f5f8;
-}
-#iniciarSesion{
-    background-color:#ff5500;
-    color:white;
+:root {
+  /* Colores */
+  color-scheme: light;
+  --color-background: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-text: #12151e;
+  --color-text-muted: #6c757d;
+  --color-border: #e9ecef;
+
+  /* Colores de marca */
+  --color-primary: #ff5500;
+  --color-primary-hover: #e64d00;
+  --color-danger: #dc3545;
+
+  /* Diseño */
+  --border-radius: 12px;
+  --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
-#entrar{
-    margin-left:1.5%;
-    width:97.5%;
-    background-color:#fd7d0b;
-    padding:15px 5px;
+/* Reset básico y centrado */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  min-height: 100vh;
 }
-form{
-    width:20%;
-    border:1px solid black;
-    padding:30px;
-    border-radius:10px;
-    background-color:white;
+
+.auth-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
-p{
-    text-align:center;
+
+/* Tarjeta del formulario */
+.auth-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-card);
+  width: 100%;
+  max-width: 420px;
+  padding: 32px;
+  box-sizing: border-box;
 }
-.contraseña{
-    display:none;
+
+/* Botones de pestañas arriba (Iniciar sesión / Registrarse) */
+.tabs-container {
+  display: flex;
+  gap: 8px;
+  background-color: var(--color-background);
+  padding: 4px;
+  border-radius: calc(var(--border-radius) - 4px);
+  margin-bottom: 24px;
 }
-.confirmarContraseña{
-    display:none;
+
+#iniciarSesion,
+#registrarse {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
-#error{
-    color:red;
-    display:none;
+
+/* Ajustes cuando el JS aplica los estilos de estado */
+#iniciarSesion:hover,
+#registrarse:hover {
+  color: var(--color-text);
 }
-@media (max-width: 1000px) {
-    form{
-        width:40%;
-    }
+
+/* Campos de entrada y etiquetas */
+.container {
+  display: flex;
+  flex-direction: column;
 }
-@media (max-width: 500px) {
-    form{
-        width:80%;
-    }
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
 }
-@media (max-width: 300px) {
-    button{
-        font-size:4px;
-    }
-    label{
-        font-size:10px;
-    }
-    form{
-        width:60%;
-    }
-    .campos{
-        width:80%;
-    }
+
+label.campos, 
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+input.campos {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--border-radius) - 4px);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input.campos:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(255, 85, 0, 0.15);
+}
+
+/* Botón principal Submit (Entrar) */
+#entrar {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: calc(var(--border-radius) - 4px);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#entrar:hover {
+  background-color: var(--color-primary-hover);
+}
+
+#entrar:active {
+  transform: scale(0.98);
+}
+
+/* Botones secundarios (Actualizar / Eliminar) */
+.account-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.btn-secondary,
+.btn-danger {
+  flex: 1;
+  padding: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: calc(var(--border-radius) - 6px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-background);
+}
+
+.btn-danger {
+  background-color: transparent;
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger);
+}
+
+.btn-danger:hover {
+  background-color: var(--color-danger);
+  color: #ffffff;
+}
+
+/* Mensaje de Error */
+#error {
+  display: none; /* Tu JS lo muestra cambiando display a block */
+  background-color: rgba(220, 53, 69, 0.1);
+  color: var(--color-danger);
+  border: 1px solid rgba(220, 53, 69, 0.2);
+  padding: 10px;
+  border-radius: calc(var(--border-radius) - 6px);
+  font-size: 0.85rem;
+  text-align: center;
+  margin: 12px 0;
 }

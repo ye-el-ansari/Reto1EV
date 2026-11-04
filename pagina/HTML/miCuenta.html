@@ -7,27 +7,60 @@
     <link rel="stylesheet" type="text/css" href="../CSS/miCuenta.css">
 </head>
 <body>
-    <main>
-        <!--Formulario para inicia sesión o registrarse-->
-        <form>
-           <!--Los botones tienen que ser de tipo boton ya que si no el addEventListener del formulario de tipo submit se ejecutaría al clickar en cualquiera de los tres botones ya que por defecto estan en tipo submit-->
-            <button  type="button" id="iniciarSesion">Iniciar sesion</button><button type="button" id="registrarse">Registrarse</button>
-            <div>
-            <label for="usuario" class="usuario">Nombre de usuario</label>
-            <input type="correo" id="usuario" name="usuario" class="usuario campos">
-            <label for="correo" class="correo">Correo electrónico</label>
-            <input type="correo" id="correo" name="correo" class="correo campos">
-            <label for="contraseña" class="contraseña">Contraseña</label>
-            <input type="password" id="contraseña" name="contraseña" class="contraseña campos">
-            <label for="confirmarContraseña" class="confirmarContraseña">Confirmar contraseña</label>
-            <input type="password" class="confirmarContraseña campos" name="confirmarContraseña" id="confirmarContraseña">
-
-            <input type="submit" value="Entrar" id="entrar" formaction="carrito.html">
-            <p id="error">El usuario o correo introducidos están en uso</p>
-            </div>
+      <input type="checkbox" id="them-toggle" class="them-toggle" />
+    <div class="body">
+    
+    <main class="auth-main">
+        <!-- Formulario para iniciar sesión o registrarse -->
+        <form class="auth-card">
             
+            <!-- Selector de pestañas -->
+            <div class="tabs-container">
+                <button type="button" id="iniciarSesion" class="tab-btn active">Iniciar sesión</button>
+                <button type="button" id="registrarse" class="tab-btn">Registrarse</button>
+            </div>
+
+            <div class="container">
+                <!-- Nombre de Usuario -->
+                <div class="field-group usuario">
+                    <label for="usuario" class="usuario">Nombre de usuario</label>
+                    <input type="correo" id="usuario" name="usuario" class="usuario campos" placeholder="Ej. juan123">
+                </div>
+
+                <!-- Correo -->
+                <div class="field-group correo">
+                    <label for="correo" class="correo">Correo electrónico</label>
+                    <input type="correo" id="correo" name="correo" class="correo campos" placeholder="ejemplo@correo.com">
+                </div>
+
+                <!-- Contraseña -->
+                <div class="field-group contrasenia">
+                    <label for="contrasenia" class="contrasenia">Contraseña</label>
+                    <input type="password" id="contrasenia" name="contrasenia" class="contrasenia campos" placeholder="••••••••">
+                </div>
+
+                <!-- Confirmar Contraseña -->
+                <div class="field-group confirmarContrasenia">
+                    <label for="confirmarContrasenia" class="confirmarContrasenia">Confirmar contraseña</label>
+                    <input type="password" id="confirmarContrasenia" name="confirmarContrasenia" class="confirmarContrasenia campos" placeholder="••••••••">
+                </div>
+
+                <!-- Mensaje de error -->
+                <p id="error">El usuario o correo introducidos están en uso</p>
+
+                <!-- Acciones Principales -->
+                <input type="submit" value="Entrar" id="entrar" formaction="carrito.html">
+
+                <!-- Acciones Secundarias de Cuenta -->
+                <div class="account-actions">
+                    <button type="button" id="modificar" class="btn-secondary">Actualizar Datos</button>
+                    <button type="button" id="eliminar" class="btn-danger">Eliminar Cuenta</button>
+                </div>
+            </div>
+
         </form>
     </main>
+
     <script src="../JS/miCuenta.js"></script>
 </body>
 </html>
