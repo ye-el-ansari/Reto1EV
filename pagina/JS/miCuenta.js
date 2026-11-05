@@ -119,14 +119,18 @@
 const iniciarSesion = document.getElementById("iniciarSesion");
 const registrarse = document.getElementById("registrarse");
 const btnEntrar = document.querySelector("#entrar");
-const usuario = document.querySelector(".usuario");
-const correo = document.querySelector(".correo");
-const contrasenia = document.querySelector(".contrasenia");
+const usuario = document.getElementById("usuario");
+const correo = document.getElementById("correo");
+const contrasenia = document.getElementById("contrasenia");
+const correoLabel = document.querySelector(".correo");
 const confirmarcontrasenia = document.querySelector(".confirmarContrasenia");
+const password=document.getElementById("confirmarContrasenia")
 const error = document.getElementById("error");
 const btnModificar = document.getElementById("modificar");
 const btnEliminar = document.getElementById("eliminar");
-const url = "http://localhost:3000";
+const form = document.getElementById("form");
+const url = "http://127.0.0.1:3000";
+
 
 let logeado = false;
 let usuarios = [];
@@ -151,20 +155,25 @@ async function cargarUsuarios() {
 }
 
 async function crearUsuario(datos) {
-  const res = await fetch(url + "/usuarios", {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify(datos),
-  });
-  if (!res.ok) {
-    throw new Error("hubo un error al crear usuario" + res.status);
+  try {
+    const res = await fetch(url + "/usuarios", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(datos),
+    });
+
+    if (!res.ok) {
+      throw new Error("Hubo un error al crear usuario: " + res.status);
+    }
+
+   
+  } catch (err) {
+    console.error("Error en crearUsuario:", err);
   }
 }
 async function modificarUsuario(datos) {
-  const nombre = usuario.value.toLowerCase().trim() || "";
-  const pass = contrasenia.value.trim() || "";
-  const email = correo.value.trim() || "";
 
+  try{
   const res = await fetch(url + "/usuarios/" + datos.id, {
     method: "PUT",
     headers: { "content-type": "application/json" },
@@ -179,7 +188,12 @@ async function modificarUsuario(datos) {
     throw new Error("hubo un error al modificar usuario" + res.status);
   }
   user = { ...datos, nombre, contrasenia: pass, correo: email };
-  storageUser(user);
+   storageUser(user);
+   const usuarioCreado = await res.json();
+    return usuarioCreado;
+}catch(er){
+   console.error("Error en modificarUsuario:", err);
+}
 }
 async function eliminarCuenta(datos) {
   const res = fetch(url + "/usuarios/" + datos.id, {
@@ -192,7 +206,7 @@ async function eliminarCuenta(datos) {
   localStorage.removeItem("usuario");
   alert("Cuenta eliminada con éxito");
   window.location.href = "productos.html";
-  
+
 }
 function esLogeado() {
   const storage = localStorage.getItem("usuario");
@@ -206,6 +220,7 @@ function esLogeado() {
     return true;
   } catch (e) {
     localStorage.removeItem("usuario");
+    localStorage.removeItem("carrito");
     usuario = null;
     logeado = false;
     return false;
@@ -217,6 +232,7 @@ function storageUser(datosUsuario) {
 }
 
 function rellenarDatosUsuario(id) {
+  contrasenia.type = "text";
   btnEntrar.style.display = "none";
   const us = usuarios.find((u) => u.id === id);
   correo.style.display = "block";
@@ -233,17 +249,24 @@ function rellenarDatosUsuario(id) {
 
 function vistaLogin() {
   vaciarCampos();
+  contrasenia.type = "password";
   btnEntrar.style.display = "block";
   iniciarSesion.style.display = "block";
+  contrasenia.style.display = "block"
   correo.style.display = "none";
   registrarse.style.display = "block";
   btnModificar.style.display = "none";
   btnEliminar.style.display = "none";
   confirmarcontrasenia.style.display = "none";
+  usuario.setAttribute("required", "true");
+  correo.removeAttribute("required");
+  confirmarcontrasenia.removeAttribute("required");
+  correoLabel.style.display = "none";
 }
 
 function vistaRegistrar() {
   vaciarCampos();
+  contrasenia.type = "text";
   btnEntrar.style.display = "block";
   correo.style.display = "block";
   iniciarSesion.style.display = "block";
@@ -251,7 +274,13 @@ function vistaRegistrar() {
   btnModificar.style.display = "none";
   btnEliminar.style.display = "none";
   confirmarcontrasenia.style.display = "block";
+  usuario.setAttribute("required", "true");
+  contrasenia.setAttribute("required", "true");
+  correo.setAttribute("required", "true");
+  confirmarcontrasenia.setAttribute("required", "true");
+  correoLabel.style.display = "block";
 }
+
 
 function vaciarCampos() {
   usuario.value = "";
@@ -280,16 +309,19 @@ registrarse.addEventListener("click", () => {
   vistaRegistrar();
 });
 
-btnEntrar.addEventListener("click",async (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
   error.style.display = "none";
+
   error.innerHTML = "";
   const nombre = usuario.value.toLowerCase().trim() || "";
   const pass = contrasenia.value.trim() || "";
-  const pass2 = confirmarcontrasenia.value.trim() || "";
+  const pass2 = password.value.trim() || "";
   const email = correo.value.toLowerCase().trim() || "";
+  console.log(pass,"|",pass2)
   if (btnEntrar.value === "Iniciar") {
     if ((user = loginCheck(nombre, pass))) {
+    
       storageUser(user);
       window.location.href = "../HTML/productos.html";
       return;
@@ -298,30 +330,42 @@ btnEntrar.addEventListener("click",async (e) => {
     error.style.display = "block";
     return;
   } else {
+
     if (pass !== pass2) {
       error.textContent = "Contraseñeas no coinciden!";
       error.style.display = "block";
       return;
     } else {
       const addUser = {
-        id: usuarios.length + 1,
         contrasenia: pass,
         nombre: nombre,
         correo: email,
       };
-    await  crearUsuario(addUser);
+      await crearUsuario(addUser);
+      alert("Usuario registrado correctamente");
+      btnEntrar.value = "Iniciar";
+      vistaLogin();
     }
   }
 });
 
 btnModificar.addEventListener("click", async () => {
-  await modificarUsuario(user)
-    ? alert("Modificado corectamente")
-    : (error.textContent = "hubo un error");
+ const nombre = usuario ? value.toLowerCase().trim() : "";
+  const pass = contrasenia ? value.trim() : "";
+  const email = correo ? value.trim() : "";
+   const updateUser = {
+        contrasenia: pass,
+        nombre: nombre,
+        correo: email,
+      };
+  await modificarUsuario(updateUser)
+     alert("Modificado corectamente")
+      window.location("productos.html")
 });
 
 btnEliminar.addEventListener("click", async () => {
   confirm("Seguro que quieres eliminar tu cuenta")
     ? await eliminarCuenta(user)
-    : (error.textContent = "hubo un error");
+    : (error.textContent = "hubo un error al eliminar la cuenta");
+  error.style.display = "block";
 });

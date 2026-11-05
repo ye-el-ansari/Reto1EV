@@ -157,7 +157,7 @@ function filtroPrecio(precio) {
 
 function anyadirAlCesta(id){
 if(usuario!==null){
-    count=usuario.productIds.length;
+    count=usuario.carrito.length;
     usuario.productIds.push[id];
     cesta=count++;
     countCesta.textContent=cesta;
@@ -194,11 +194,11 @@ btnHeader.addEventListener("click", (e) => {
 btnLogin.addEventListener("click", () => {
   if (esLogeado()) {
     localStorage.removeItem("usuario");
+     localStorage.removeItem("carrito")
     btnLogin.textContent = "Login";
     countCesta.textContent=0;
     alert("Has cerrado sesión");
   } else {
-    
     window.location.href = "miCuenta.html";
   }
 });

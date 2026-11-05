@@ -123,11 +123,11 @@
   ],
   "usuarios": [
     {
-      "id": "1",
-      "contrasenia": "abc",
+      "id": "Qs6xyJZyILY",
+      "contrasenia": "s",
       "nombre": "prueba",
-      "email": "prueba@email.com"
+      "correo": "s"
     }
-  ]
-  
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
