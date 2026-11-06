@@ -129,6 +129,7 @@ const error = document.getElementById("error");
 const btnModificar = document.getElementById("modificar");
 const btnEliminar = document.getElementById("eliminar");
 const form = document.getElementById("form");
+const divBotones=document.querySelector(".tabs-container")
 const url = "http://127.0.0.1:3000";
 
 
@@ -179,20 +180,21 @@ async function modificarUsuario(datos) {
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
       id: datos.id,
-      nombre: nombre,
-      contrasenia: pass,
-      correo: email,
+      nombre: datos.nombre,
+      contrasenia: datos.contrasenia,
+      correo: datos.correo
     }),
   });
   if (!res.ok) {
-    throw new Error("hubo un error al modificar usuario" + res.status);
+    throw new Erro("hubo un error al modificar usuario" + res.status);
   }
-  user = { ...datos, nombre, contrasenia: pass, correo: email };
+   const usuarioModificado = await res.json();
+   user = { ...user, ...usuarioModificado };
    storageUser(user);
-   const usuarioCreado = await res.json();
-    return usuarioCreado;
-}catch(er){
-   console.error("Error en modificarUsuario:", err);
+    return true;
+}catch(e){
+   console.log("Error en modificarUsuario:");
+   return null;
 }
 }
 async function eliminarCuenta(datos) {
@@ -203,9 +205,10 @@ async function eliminarCuenta(datos) {
   if (!res.ok) {
     throw new Error("hubo un error al eliminar el usuario");
   }
-  localStorage.removeItem("usuario");
+  localStorage.removeItem(user);
+    window.location.href = "productos.html";
   alert("Cuenta eliminada con éxito");
-  window.location.href = "productos.html";
+
 
 }
 function esLogeado() {
@@ -349,23 +352,40 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
-btnModificar.addEventListener("click", async () => {
- const nombre = usuario ? value.toLowerCase().trim() : "";
-  const pass = contrasenia ? value.trim() : "";
-  const email = correo ? value.trim() : "";
+btnModificar.addEventListener("click", async (e) => {
+e.preventDefault()
+  error.style.display = "none";
+ const nombre = usuario ? usuario.value.toLowerCase().trim() : "";
+  const pass = contrasenia ? contrasenia.value.trim() : "";
+  const email = correo ? correo.value.trim() : "";
+  if (!user || !user.id) {
+    alert(" no se encuentra el usuario para modificar!");
+    return;
+  }
    const updateUser = {
+        id:user.id,
         contrasenia: pass,
         nombre: nombre,
         correo: email,
       };
-  await modificarUsuario(updateUser)
-     alert("Modificado corectamente")
-      window.location("productos.html")
+  if(await modificarUsuario(updateUser)){
+      window.location.href = "productos.html";
+    alert("modificando correctamente")
+
+
+  }
+  else{
+    error.textContent="no se ha podido modificar el usuario correctamente";
+    error.style.display = "block";
+  }
 });
 
 btnEliminar.addEventListener("click", async () => {
+  error.style.display = "none";
   confirm("Seguro que quieres eliminar tu cuenta")
     ? await eliminarCuenta(user)
-    : (error.textContent = "hubo un error al eliminar la cuenta");
+    :"";
   error.style.display = "block";
 });
+
+

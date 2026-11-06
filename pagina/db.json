@@ -124,9 +124,9 @@
   "usuarios": [
     {
       "id": "Qs6xyJZyILY",
-      "contrasenia": "s",
-      "nombre": "s",
-      "correo": "s"
+      "nombre": "ssa",
+      "contrasenia": "ssa",
+      "correo": "ssa"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
