@@ -4,12 +4,15 @@ const countCesta = document.getElementById("cartCount");
 const btnHeader = document.getElementById("header-button");
 const sidebarFiltro = document.querySelector(".sidebar");
 const section = document.querySelector(".cards");
+const btnMiCuenta=document.getElementById("btnMiCuenta");
 
 const url = "http://localhost:3000";
 let productos = [];
 let filtrados = [];
-let cesta = 0;
+let cesta = [];
 let usuario=null;
+let logeado=false;
+let carritoContador=0;
 
 
 
@@ -23,8 +26,9 @@ async function cargarProductos() {
 async function iniciar() {
     await cargarProductos();
     crearCards(productos);
+    carrito();
 
-    esLogeado()? btnLogin.textContent="Logout":"";
+    esLogeado() ? (btnLogin.textContent="👤 Logout",btnMiCuenta.style.display="block"):"";
 
 }
 
@@ -34,14 +38,39 @@ function esLogeado() {
     
     try {
         usuario = JSON.parse(storage);
+        logeado=true;
+         carrito();
         return true;
     } catch (e) {
         localStorage.removeItem("usuario");
         usuario = null;
+        logueado=false;
         return false;
     }
 }
 
+function carrito(){
+    const storage=localStorage.getItem("carrito");
+    if(!storage){ cesta=[];return false;}
+    try{
+        cesta=JSON.parse(storage);
+        carritoContador=cesta.length;
+        countCesta.textContent=carritoContador
+        return true;
+    }catch(e){
+        localStorage.removeItem("carrito");
+        cesta=[];
+        carritoContador = 0;
+        return false;
+    }
+}
+
+function anyadirAlCesta(product) {
+    carrito();
+    cesta.push(product);
+    localStorage.setItem("carrito", JSON.stringify(cesta));
+    countCesta.textContent = cesta.length;
+}
 function crearCards(productos) {
     section.innerHTML = "";
     productos.forEach(product => {
@@ -51,9 +80,14 @@ function crearCards(productos) {
         const h2 = document.createElement("h2");
         const p = document.createElement("p");
         const button = document.createElement("button");
+        button.textContent="Anadir a la cesta"
 
         button.addEventListener("click",()=>{
-            anyadirAlCesta(product.id);
+            anyadirAlCesta(product);
+        })
+
+        button.addEventListener("click",()=>{
+
         })
 
         img.src = product.imagen;
@@ -155,21 +189,6 @@ function filtroPrecio(precio) {
 }
 
 
-function anyadirAlCesta(id){
-if(usuario!==null){
-    count=usuario.carrito.length;
-    usuario.productIds.push[id];
-    cesta=count++;
-    countCesta.textContent=cesta;
-
-}
-else{
-     cesta++;
-    countCesta.textContent=cesta;
-}
-}
-
-
 iniciar();
 
 
@@ -195,7 +214,10 @@ btnLogin.addEventListener("click", () => {
   if (esLogeado()) {
     localStorage.removeItem("usuario");
      localStorage.removeItem("carrito")
-    btnLogin.textContent = "Login";
+     cesta=null;
+     logeado=false;
+    btnLogin.textContent = "👤 Login";
+    btnMiCuenta.style.display="none";
     countCesta.textContent=0;
     alert("Has cerrado sesión");
   } else {
@@ -203,6 +225,11 @@ btnLogin.addEventListener("click", () => {
   }
 });
 
+btnCesta.addEventListener("click",()=>{window.location.href="carrito.html"})
+
+btnMiCuenta.addEventListener("click",()=>{
+window.location.href="miCuenta.html";
+})
 
 
 
