@@ -294,14 +294,14 @@ btnContrasenia.addEventListener("click", () => {
     // MOSTRAR CONTRASEÑA (Activar switch)
     contrasenia.type = "text";
     password.type = "text";
-    statusContrasenia.textContent = "Mostrar";
+    statusContrasenia.textContent = "Ocultar";
     btnContrasenia.classList.add("active");
     statusContrasenia.classList.add("active");
   } else {
     // OCULTAR CONTRASEÑA (Desactivar switch)
     contrasenia.type = "password";
     password.type = "password";
-    statusContrasenia.textContent = "Ocultar";
+    statusContrasenia.textContent = "Mostrar";
     btnContrasenia.classList.remove("active");
     statusContrasenia.classList.remove("active");
   }

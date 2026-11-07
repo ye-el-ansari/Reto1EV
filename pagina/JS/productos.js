@@ -44,7 +44,7 @@ function esLogeado() {
     } catch (e) {
         localStorage.removeItem("usuario");
         usuario = null;
-        logueado=false;
+        logeado=false;
         return false;
     }
 }
@@ -84,10 +84,6 @@ function crearCards(productos) {
 
         button.addEventListener("click",()=>{
             anyadirAlCesta(product);
-        })
-
-        button.addEventListener("click",()=>{
-
         })
 
         img.src = product.imagen;
