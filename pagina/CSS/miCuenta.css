@@ -15,6 +15,7 @@
   /* Diseño */
   --border-radius: 12px;
   --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.06);
+  --shadow-button: 0 4px 15px rgba(var(--color-primary))
 }
 
 /* Reset básico y centrado */
@@ -24,6 +25,47 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   min-height: 100vh;
+}
+
+header {
+  background-color: var(--color-surface);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 100px;
+  padding: 10px;
+  position: relative;
+}
+
+img {
+  display: block;
+  margin-right: auto;
+  width: 130px;
+  object-fit: contain;
+  position: absolute;
+  left: 55px;
+  top: 20px;
+}
+
+.header-button button {
+  border: none;
+  padding: 10px;
+  margin: 10px 5px;
+  cursor: pointer;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+
+  box-shadow: var(--shadow-card);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.3s ease;
+}
+
+.header-button button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .auth-main {
@@ -73,7 +115,14 @@ body {
 /* Ajustes cuando el JS aplica los estilos de estado */
 #iniciarSesion:hover,
 #registrarse:hover {
-  color: var(--color-text);
+  color: var(--color-border);
+  background-color: var(--color-primary-hover);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-button);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.7s ease;
 }
 
 /* Campos de entrada y etiquetas */
@@ -88,7 +137,7 @@ body {
   margin-bottom: 16px;
 }
 
-label.campos, 
+label.campos,
 label {
   font-size: 0.85rem;
   font-weight: 600;
@@ -162,7 +211,8 @@ input.campos:focus {
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-background);
+  background-color: var(--color-primary);
+  box-shadow:var(--shadow-button)
 }
 
 .btn-danger {
@@ -178,7 +228,8 @@ input.campos:focus {
 
 /* Mensaje de Error */
 #error {
-  display: none; /* Tu JS lo muestra cambiando display a block */
+  display: none;
+  /* Tu JS lo muestra cambiando display a block */
   background-color: rgba(220, 53, 69, 0.1);
   color: var(--color-danger);
   border: 1px solid rgba(220, 53, 69, 0.2);
@@ -187,4 +238,55 @@ input.campos:focus {
   font-size: 0.85rem;
   text-align: center;
   margin: 12px 0;
+}
+/* Layout del Label */
+label.contrasenia {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* Estilo base del botón (Apagado) */
+.btn-switch {
+    width: 46px;
+    height: 26px;
+    background-color: #e9e9ea;
+    border-radius: 50px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+   
+    transition: background-color 0.3s ease;
+    padding: 0;
+}
+
+/* El círculo deslizante interior */
+.btn-switch::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow:var(--shadow-button);
+    transition: transform 0.3s ease;
+}
+
+/* Estado Encendido / Marcado (Naranja estilo Apple) */
+.btn-switch.active {
+    background-color: var(--primary-hover, #ff6b00);
+}
+
+.btn-switch.active::after {
+     transform: translateX(20px);
 }

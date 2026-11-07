@@ -1,121 +1,3 @@
-/*if (localStorage.getItem("usuario")) {
-    window.location = "../HTML/carrito.html";
-} else {
-    const iniciarSesion = document.getElementById("iniciarSesion");
-    const registrarse = document.getElementById("registrarse");
-    const form = document.querySelector("form");
-    const usuario = document.querySelectorAll(".usuario");
-    const correo = document.querySelectorAll(".correo");
-    const contrasenia = document.querySelectorAll(".contrasenia");
-    const confirmarcontrasenia = document.querySelectorAll(".confirmarcontrasenia");
-    const error = document.getElementById("error");
-    let conf = false;
-    let usuarios = [];
-
-
-    function storageUser(nombre) {
-        usuarios = { "nombre":nombre }
-        localStorage.setItem("usuario", JSON.stringify(usuarios));
-        console.log(usuarios.nombre);
-
-    }
-    
-    fetch("http://localhost:3000/usuarios")
-        .then(response => {
-            if (!response.ok) {
-                alert("No respondió el servidor");
-            }
-            return response.json();
-        })
-        .then(datos => {
-            for (let i = 0; i < datos.length; i++) {
-                console.log(datos[i]);
-                if (datos[i].nombre === usuario.value && datos[i].contrasenia === correo.value) {
-                    conf = true;
-                    storageUser(datos[i].nombre);break;
-                }
-
-            }
-            if (!conf) { alert("contrasenia o usuario incorecto"); return; }
-
-
-        });
-    registrarse.addEventListener("click", function (e) {
-        usuario[1].value = "";
-        correo[1].value = "";
-
-        e.preventDefault();
-        registrarse.style.boxShadow = "0px 0px 10px 5px #ff5500";
-        iniciarSesion.style.boxShadow = "";
-        contrasenia.forEach((input) => {
-            input.style.display = "block";
-        });
-        confirmarcontrasenia.forEach((input) => {
-            input.style.display = "block";
-        });
-
-    });
-        iniciarSesion.addEventListener("click", function (e) {
-        usuario[1].value = "";
-        correo[1].value = "";
-        contrasenia[1].value = "";
-        confirmarcontrasenia[1].value = "";
-        error.style.display = "none";
-        e.preventDefault();
-        iniciarSesion.style.boxShadow = "0px 0px 10px 5px #ff5500";
-        registrarse.style.boxShadow = "";
-        confirmarcontrasenia.forEach((input) => {
-            input.style.display = "none";
-        });
-        usuario.forEach((input) => {
-            input.style.display = "block";
-        });
-        contrasenia.forEach((input) => {
-            input.style.display = "none";
-        });
-
-    });
-  
-        if (usuario[1].value && correo[1].value && contrasenia[1].value && confirmarcontrasenia[1].value) {
-            e.preventDefault();
-            const datos = {
-                "usuario": usuario[1].value,
-                "correo": correo[1].value,
-                "contrasenia": contrasenia[1].value
-            };
-            for (let i = 0; i < usuarios.length; i++) {
-                if (usuarios[i].usuario === usuario[1].value && usuarios[i].correo === correo[1].value) {
-                    conf = true;
-                }
-            }
-
-            if (conf) {
-                error.style.display = "block";
-                return;
-            }
-            e.target.submit();
-            await fetch("http://localhost:3000/usuarios", {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify(datos)
-
-            });
-
-
-        } else if (usuario[1].value && correo[1].value) {
-            for (let i = 0; i < usuarios.length; i++) {
-                if (usuario[1].value === usuarios[i].usuario && correo[1].value === usuarios[i].correo) {
-                    localStorage.setItem("usuario", JSON.stringify(usuarios[i]));
-                    e.target.submit();
-                }
-            }
-
-        }
-
-    });
-}*/
 const iniciarSesion = document.getElementById("iniciarSesion");
 const registrarse = document.getElementById("registrarse");
 const btnEntrar = document.querySelector("#entrar");
@@ -124,12 +6,16 @@ const correo = document.getElementById("correo");
 const contrasenia = document.getElementById("contrasenia");
 const correoLabel = document.querySelector(".correo");
 const confirmarcontrasenia = document.querySelector(".confirmarContrasenia");
-const password=document.getElementById("confirmarContrasenia")
+const password = document.getElementById("confirmarContrasenia")
 const error = document.getElementById("error");
 const btnModificar = document.getElementById("modificar");
 const btnEliminar = document.getElementById("eliminar");
 const form = document.getElementById("form");
-const divBotones=document.querySelector(".tabs-container")
+const divBotones = document.querySelector(".tabs-container");
+const btnLogin = document.getElementById("btnLogin");
+const btnInicio = document.getElementById("btnInicio");
+const btnContrasenia = document.getElementById("btnContrasenia");
+const statusContrasenia = document.getElementById("passStatus");
 const url = "http://127.0.0.1:3000";
 
 
@@ -167,35 +53,35 @@ async function crearUsuario(datos) {
       throw new Error("Hubo un error al crear usuario: " + res.status);
     }
 
-   
+
   } catch (err) {
     console.error("Error en crearUsuario:", err);
   }
 }
 async function modificarUsuario(datos) {
 
-  try{
-  const res = await fetch(url + "/usuarios/" + datos.id, {
-    method: "PUT",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({
-      id: datos.id,
-      nombre: datos.nombre,
-      contrasenia: datos.contrasenia,
-      correo: datos.correo
-    }),
-  });
-  if (!res.ok) {
-    throw new Erro("hubo un error al modificar usuario" + res.status);
-  }
-   const usuarioModificado = await res.json();
-   user = { ...user, ...usuarioModificado };
-   storageUser(user);
+  try {
+    const res = await fetch(url + "/usuarios/" + datos.id, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        id: datos.id,
+        nombre: datos.nombre,
+        contrasenia: datos.contrasenia,
+        correo: datos.correo
+      }),
+    });
+    if (!res.ok) {
+      throw new Erro("hubo un error al modificar usuario" + res.status);
+    }
+    const usuarioModificado = await res.json();
+    user = { ...user, ...usuarioModificado };
+    storageUser(user);
     return true;
-}catch(e){
-   console.log("Error en modificarUsuario:");
-   return null;
-}
+  } catch (e) {
+    console.log("Error en modificarUsuario:");
+    return null;
+  }
 }
 async function eliminarCuenta(datos) {
   const res = fetch(url + "/usuarios/" + datos.id, {
@@ -206,7 +92,7 @@ async function eliminarCuenta(datos) {
     throw new Error("hubo un error al eliminar el usuario");
   }
   localStorage.removeItem(user);
-    window.location.href = "productos.html";
+  window.location.href = "index.html";
   alert("Cuenta eliminada con éxito");
 
 
@@ -235,10 +121,11 @@ function storageUser(datosUsuario) {
 }
 
 function rellenarDatosUsuario(id) {
-  contrasenia.type = "text";
+  btnLogin.style.display = "";
   btnEntrar.style.display = "none";
   const us = usuarios.find((u) => u.id === id);
   correo.style.display = "block";
+  divBotones.style.display = "none";
   iniciarSesion.style.display = "none";
   registrarse.style.display = "none";
   btnModificar.style.display = "block";
@@ -252,8 +139,9 @@ function rellenarDatosUsuario(id) {
 
 function vistaLogin() {
   vaciarCampos();
-  contrasenia.type = "password";
+  btnLogin.style.display = "none";
   btnEntrar.style.display = "block";
+  divBotones.style.display = "flex";
   iniciarSesion.style.display = "block";
   contrasenia.style.display = "block"
   correo.style.display = "none";
@@ -269,8 +157,8 @@ function vistaLogin() {
 
 function vistaRegistrar() {
   vaciarCampos();
-  contrasenia.type = "text";
   btnEntrar.style.display = "block";
+  divBotones.style.display = "flex";
   correo.style.display = "block";
   iniciarSesion.style.display = "block";
   registrarse.style.display = "block";
@@ -321,12 +209,12 @@ form.addEventListener("submit", async (e) => {
   const pass = contrasenia.value.trim() || "";
   const pass2 = password.value.trim() || "";
   const email = correo.value.toLowerCase().trim() || "";
-  console.log(pass,"|",pass2)
+  console.log(pass, "|", pass2)
   if (btnEntrar.value === "Iniciar") {
     if ((user = loginCheck(nombre, pass))) {
-    
+
       storageUser(user);
-      window.location.href = "../HTML/productos.html";
+      window.location.href = "../HTML/index.html";
       return;
     }
     error.textContent = "Datos intoducidos incorectos!";
@@ -353,29 +241,29 @@ form.addEventListener("submit", async (e) => {
 });
 
 btnModificar.addEventListener("click", async (e) => {
-e.preventDefault()
+  e.preventDefault()
   error.style.display = "none";
- const nombre = usuario ? usuario.value.toLowerCase().trim() : "";
+  const nombre = usuario ? usuario.value.toLowerCase().trim() : "";
   const pass = contrasenia ? contrasenia.value.trim() : "";
   const email = correo ? correo.value.trim() : "";
   if (!user || !user.id) {
     alert(" no se encuentra el usuario para modificar!");
     return;
   }
-   const updateUser = {
-        id:user.id,
-        contrasenia: pass,
-        nombre: nombre,
-        correo: email,
-      };
-  if(await modificarUsuario(updateUser)){
-      window.location.href = "productos.html";
+  const updateUser = {
+    id: user.id,
+    contrasenia: pass,
+    nombre: nombre,
+    correo: email,
+  };
+  if (await modificarUsuario(updateUser)) {
+    window.location.href = "productos.html";
     alert("modificando correctamente")
 
 
   }
-  else{
-    error.textContent="no se ha podido modificar el usuario correctamente";
+  else {
+    error.textContent = "no se ha podido modificar el usuario correctamente";
     error.style.display = "block";
   }
 });
@@ -384,8 +272,38 @@ btnEliminar.addEventListener("click", async () => {
   error.style.display = "none";
   confirm("Seguro que quieres eliminar tu cuenta")
     ? await eliminarCuenta(user)
-    :"";
+    : "";
   error.style.display = "block";
 });
 
+btnLogin.addEventListener("click", () => {
+  localStorage.removeItem("usuario");
+  localStorage.removeItem("carrito")
+  logeado = false;
+  alert("Has cerrado sesión");
+  window.location.href = "index.html";
+})
+btnInicio.addEventListener("click", () => {
+  window.location.href = "index.html"
+})
+btnContrasenia.addEventListener("click", () => {
+  // Comprobamos si el campo es de tipo password
+  const esOculto = contrasenia.type === "password";
+
+  if (esOculto) {
+    // MOSTRAR CONTRASEÑA (Activar switch)
+    contrasenia.type = "text";
+    password.type = "text";
+    statusContrasenia.textContent = "Mostrar";
+    btnContrasenia.classList.add("active");
+    statusContrasenia.classList.add("active");
+  } else {
+    // OCULTAR CONTRASEÑA (Desactivar switch)
+    contrasenia.type = "password";
+    password.type = "password";
+    statusContrasenia.textContent = "Ocultar";
+    btnContrasenia.classList.remove("active");
+    statusContrasenia.classList.remove("active");
+  }
+});
 

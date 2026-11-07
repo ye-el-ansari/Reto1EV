@@ -28,7 +28,7 @@ async function iniciar() {
     crearCards(productos);
     carrito();
 
-    esLogeado() ? (btnLogin.textContent="👤 Logout",btnMiCuenta.style.display="block"):"";
+    esLogeado() ? (btnLogin.textContent="🔓 Logout",btnMiCuenta.style.display="block"):"";
 
 }
 
@@ -216,7 +216,7 @@ btnLogin.addEventListener("click", () => {
      localStorage.removeItem("carrito")
      cesta=null;
      logeado=false;
-    btnLogin.textContent = "👤 Login";
+    btnLogin.textContent = "🔐 Login";
     btnMiCuenta.style.display="none";
     countCesta.textContent=0;
     alert("Has cerrado sesión");

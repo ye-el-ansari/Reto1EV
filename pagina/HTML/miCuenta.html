@@ -1,65 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi cuenta</title>
     <link rel="stylesheet" type="text/css" href="../CSS/miCuenta.css">
 </head>
+
 <body>
-      
     <div class="body">
-    
-    <main class="auth-main">
-        <!-- Formulario para iniciar sesión o registrarse -->
-        <form class="auth-card" id="form">
-            <!-- Selector de pestañas -->
-            <div class="tabs-container">
-                <button type="button" id="iniciarSesion" class="tab-btn active">Iniciar sesión</button>
-                <button type="button" id="registrarse" class="tab-btn">Registrarse</button>
+        <header>
+            <img src="../IMAGES/logo.png" width="100px" alt="Logo">
+            <div class="header-button" id="header-button">
+                <button id="btnLogin">🔓 Logout</button>
+                <button id="btnInicio" data-go="inicio"> 🏠 Inicio</button>
             </div>
+        </header>
+        <div class="body">
 
-            <div class="container">
-                <!-- Nombre de Usuario -->
-                <div class="field-group usuario">
-                    <label for="usuario" class="usuario">Nombre de usuario</label>
-                    <input type="correo" id="usuario" name="usuario" class="usuario campos" placeholder="Ej. juan123" required >
-                </div>
+            <main class="auth-main">
+                <!-- Formulario para iniciar sesión o registrarse -->
+                <form class="auth-card" id="form">
+                    <!-- Selector de pestañas -->
+                    <div class="tabs-container">
+                        <button type="button" id="iniciarSesion" class="tab-btn active">Iniciar sesión</button>
+                        <button type="button" id="registrarse" class="tab-btn">Registrarse</button>
+                    </div>
 
-                <!-- Correo -->
-                <div class="field-group correo">
-                    <label for="correo" class="correo">Correo electrónico</label>
-                    <input type="correo" id="correo" name="correo" class="correo campos" placeholder="ejemplo@correo.com"  >
-                </div>
+                    <div class="container">
+                        <!-- Nombre de Usuario -->
+                        <div class="field-group usuario">
+                            <label for="usuario" class="usuario">Nombre de usuario</label>
+                            <input type="correo" id="usuario" name="usuario" class="usuario campos"
+                                placeholder="Ej. juan123" required>
+                        </div>
 
-                <!-- Contraseña -->
-                <div class="field-group contrasenia">
-                    <label for="contrasenia" class="contrasenia">Contraseña</label>
-                    <input type="password" id="contrasenia" name="contrasenia" class="contrasenia campos" placeholder="••••••••" required >
-                </div>
+                        <!-- Correo -->
+                        <div class="field-group correo">
+                            <label for="correo" class="correo">Correo electrónico</label>
+                            <input type="correo" id="correo" name="correo" class="correo campos"
+                                placeholder="ejemplo@correo.com">
+                        </div>
 
-                <!-- Confirmar Contraseña -->
-                <div class="field-group confirmarContrasenia">
-                    <label for="confirmarContrasenia" class="confirmarContrasenia">Confirmar contraseña</label>
-                    <input type="text" id="confirmarContrasenia" name="confirmarContrasenia" class="confirmarContrasenia campos" placeholder="••••••••"  >
-                </div>
+                        <!-- Contraseña -->
+                        <div class="field-group contrasenia">
+                            <label for="contrasenia" class="contrasenia">
+                                <span class="label-title">Contraseña</span>
+                                <div class="toggle-container">
+                                    <span id="passStatus" class="estado-contrasenia">Mostrar</span>
+                                    <button type="button" class="btn-switch" id="btnContrasenia"></button>
+                                </div>
+                            </label>
+                            <input type="password" id="contrasenia" name="contrasenia" class="contrasenia campos"
+                                placeholder="••••••••" required>
+                        </div>
 
-                <!-- Mensaje de error -->
-                <p id="error"></p>
+                        <!-- Confirmar Contraseña -->
+                        <div class="field-group confirmarContrasenia">
+                            <label for="confirmarContrasenia" class="confirmarContrasenia">Confirmar contraseña</label>
+                            <input type="password" id="confirmarContrasenia" name="confirmarContrasenia"
+                                class="confirmarContrasenia campos" placeholder="••••••••">
+                        </div>
 
-                <!-- Acciones Principales -->
-                <input type="submit" value="Iniciar" id="entrar" >
+                        <!-- Mensaje de error -->
+                        <p id="error"></p>
 
-                <!-- Acciones Secundarias de Cuenta -->
-                <div class="account-actions">
-                    <button type="button" id="modificar" class="btn-secondary">Actualizar Datos</button>
-                    <button type="button" id="eliminar" class="btn-danger">Eliminar Cuenta</button>
-                </div>
-            </div>
+                        <!-- Acciones Principales -->
+                        <input type="submit" value="Iniciar" id="entrar">
 
-        </form>
-    </main>
+                        <!-- Acciones Secundarias de Cuenta -->
+                        <div class="account-actions">
+                            <button type="button" id="modificar" class="btn-secondary">Actualizar Datos</button>
+                            <button type="button" id="eliminar" class="btn-danger">Eliminar Cuenta</button>
+                        </div>
+                    </div>
 
-    <script src="../JS/miCuenta.js"></script>
+                </form>
+            </main>
+
+            <script src="../JS/miCuenta.js"></script>
 </body>
+
 </html>

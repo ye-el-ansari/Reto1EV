@@ -52,7 +52,6 @@ header {
 .logo img {
   /* width: clamp(50px, 100px, 150px); */
   display: block;
-  height: 100px;
   width: 130px;
   border-radius: var(--border-radius);
 }
