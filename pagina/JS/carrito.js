@@ -3,12 +3,14 @@ const btnLogin = document.getElementById("btnLogin");
 const btnMiCuenta = document.getElementById("btnMiCuenta");
 const divCesta = document.getElementById("divCesta");
 const carrito = localStorage.getItem("carrito") || [];
-const carritoJson = JSON.parse(carrito);
+let carritoJson=[];
+if(carrito.length>0 ){ carritoJson = JSON.parse(carrito)}
 
 let precioTotal = 0;
 let usuario = null;
 
 function cargarCarrito() {
+
     carritoJson.forEach(carrito => {
         section.innerHTML += `<div id="divSection">
     <img src="${carrito.imagen}">
@@ -67,7 +69,7 @@ btnMiCuenta.addEventListener("click", () => {
 
 //arrancar 
 
-cargarCarrito();
+if(carritoJson.length>0){cargarCarrito();}
 esLogeado()
     ? (btnLogin.textContent = "🔓 Logout", btnMiCuenta.style.display = "block")
-    : btnMiCuenta.style.display = "none",btnLogin.textContent = "🔐 Login";
+    : (btnMiCuenta.style.display = "none",btnLogin.textContent = "🔐 Login")
