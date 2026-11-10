@@ -70,9 +70,9 @@ img {
 
 .auth-main {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  min-height: 100vh;
   padding: 20px;
 }
 
@@ -86,6 +86,7 @@ img {
   max-width: 420px;
   padding: 32px;
   box-sizing: border-box;
+
 }
 
 /* Botones de pestañas arriba (Iniciar sesión / Registrarse) */
@@ -290,4 +291,67 @@ label.contrasenia {
 
 .btn-switch.active::after {
      transform: translateX(20px);
+}
+
+/* ----------- FOOTER----------- */
+footer {
+  margin-top: 50px;
+  padding: 30px 20px;
+  text-align: center;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-top: 1px solid var(--color-border);
+}
+
+footer p {
+  margin: 6px 0;
+}
+
+.footer-marca {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer-marca b {
+  color: var(--color-primary);
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* ----------- NIVEL ARRIBA----------- */
+.auth-main {
+  flex-wrap: wrap;
+  gap: 20px;
+  
+}
+
+.auth-aside {
+  width: 100%;
+  margin-bottom:auto;
+  padding: 32px;
+  border-radius: var(--border-radius);
+  background-color: var(--color-text);
+  color: var(--color-surface);
+}
+
+.auth-brand {
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.auth-brand b {
+  color: var(--color-primary);
+}
+
+.auth-slogan {
+  margin-bottom: 12px;
+  font-size: 2rem;
+}
+
+.auth-lead {
+  color: var(--color-border);
 }

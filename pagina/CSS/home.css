@@ -27,6 +27,7 @@
 
 .body {
   background-color: var(--color-background);
+  min-height:100vh;
 }
 
 /* ------- HEADER ------- */
@@ -337,7 +338,7 @@ h3 {
 
 
 /* ----------- CARDS ----------- */
-/* ----------- CARDS ----------- */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit,
@@ -422,43 +423,11 @@ h3 {
 }
 
 /* ----------- FOOTER ----------- */
-footer {
-  margin-top: 50px;
-  background-color: var(--color-background);
-  height: 370px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
 
-footer>ul {
 
-  list-style: none;
-  margin: 30px 20px 20px 20px;
 
-}
 
-footer>ul>li {
 
-  margin: 10px;
-  font-size: 14px;
-  color: rgb(74, 74, 74);
-}
-
-footer>ul>li>a:hover {
-  border-bottom: 1px solid rgb(74, 74, 74);
-}
-
-footer>ul>li>a {
-  text-decoration: none;
-  color: rgb(74, 74, 74);
-}
-
-footer>ul>li>strong {
-  font-size: 16px;
-  font-weight: 600;
-}
 
 /* ----------- MEDIA QUERIES ----------- */
 @media(max-width:790px) {
@@ -541,7 +510,7 @@ footer>ul>li>strong {
 
 
   /* ----------- HERO ----------- */
-  /* ----------- HERO ----------- */
+  
 
   .heroHome {
     flex-direction: column;
@@ -571,24 +540,36 @@ footer>ul>li>strong {
   }
 
 
-  /* ----------- FOOTER ----------- */
-  /* ----------- FOOTER ----------- */
-  footer {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 50px;
-    padding: 0px 20px 0px 20px;
-    height: 100%;
 
-  }
 
-  footer>ul {
-    flex-wrap: wrap;
-    text-align: left;
-    list-style: none;
-    margin: 10px 20px 10px 20px;
-    width: 30%;
 
-  }
+}
 
+/* ----------- FOOTER ----------- */
+footer {
+  height:20%;
+  margin-top: 50px;
+  padding: 30px 20px;
+  text-align: center;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-top: 1px solid var(--color-border);
+}
+
+footer p {
+  margin: 6px 0;
+}
+
+.footer-marca {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer-marca b {
+  color: var(--color-primary);
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  opacity: 0.7;
 }
