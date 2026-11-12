@@ -129,10 +129,10 @@
       "id": "-BSQRKIaPLQ"
     },
     {
+      "id": "_o9kONL_7mQ",
+      "nombre": "ab",
       "contrasenia": "a",
-      "nombre": "a",
-      "correo": "a",
-      "id": "_o9kONL_7mQ"
+      "correo": "a"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
