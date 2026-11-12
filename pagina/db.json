@@ -14,7 +14,7 @@
       "id": "prod-002",
       "tipo": "ordenador",
       "nombre": "PC Sobremesa Workstation Pro i7",
-      "imagen": "../IMAGES/logo.webp",
+      "imagen": "../IMAGES/PC Sobremesa Workstation Pro i7.jpg",
       "precio": "850€",
       "descuento": "10%",
       "valoracion": 4.6,
@@ -24,7 +24,7 @@
       "id": "prod-003",
       "tipo": "ordenador",
       "nombre": "Portátil Gaming Stealth 15",
-      "imagen": "../IMAGES/logo.webp",
+      "imagen": "../IMAGES/Portátil Gaming Stealth 15.jpg",
       "precio": "999€",
       "descuento": "15%",
       "valoracion": 4.9,
@@ -34,7 +34,7 @@
       "id": "prod-004",
       "tipo": "ordenador",
       "nombre": "Mini PC Compact Essential",
-      "imagen": "../IMAGES/logo.webp",
+      "imagen": "../IMAGES/Mini PC Compact Essential.jpg",
       "precio": "350€",
       "descuento": "5%",
       "valoracion": 4.3,
@@ -44,7 +44,7 @@
       "id": "prod-005",
       "tipo": "componente",
       "nombre": "Tarjeta Gráfica RTX 4060 Ti 8GB",
-      "imagen": "../IMAGES/logo.webp",
+      "imagen": "../IMAGES/Tarjeta Gráfica RTX 4060 Ti 8GB.jpg",
       "precio": "420€",
       "descuento": "12%",
       "valoracion": 4.8,
@@ -104,7 +104,7 @@
       "id": "prod-011",
       "tipo": "preferico",
       "nombre": "Ratón Inalámbrico Ultra-Light 26K DPI",
-      "imagen": "../IMAGES/RatónInalámbricoUltra-Light26KDPI.webp",
+      "imagen": "../IMAGES/Ratón Inalámbrico Ultra-Light 26K DPI.jpg",
       "precio": "60€",
       "descuento": "15%",
       "valoracion": 4.7,
@@ -123,10 +123,16 @@
   ],
   "usuarios": [
     {
-      "id": "Qs6xyJZyILY",
-      "nombre": "a",
+      "contrasenia": "1234",
+      "nombre": "jonathan",
+      "correo": "jonathan@gmail.com",
+      "id": "-BSQRKIaPLQ"
+    },
+    {
       "contrasenia": "a",
-      "correo": "a"
+      "nombre": "a",
+      "correo": "a",
+      "id": "_o9kONL_7mQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

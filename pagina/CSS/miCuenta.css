@@ -329,7 +329,7 @@ footer p {
 }
 
 .auth-aside {
-  width: 100%;
+  width: 90%;
   margin-bottom:auto;
   padding: 32px;
   border-radius: var(--border-radius);

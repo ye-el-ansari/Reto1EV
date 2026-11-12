@@ -70,6 +70,7 @@ function anyadirAlCesta(product) {
     cesta.push(product);
     localStorage.setItem("carrito", JSON.stringify(cesta));
     countCesta.textContent = cesta.length;
+    alert(" se ha anadido"+product.nombre)
 }
 function crearCards(productos) {
     section.innerHTML = "";

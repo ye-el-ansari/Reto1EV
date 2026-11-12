@@ -84,14 +84,14 @@ async function modificarUsuario(datos) {
   }
 }
 async function eliminarCuenta(datos) {
-  const res = fetch(url + "/usuarios/" + datos.id, {
+  const res = await fetch(url + "/usuarios/" + datos.id, {
     method: "DELETE",
     headers: { "content-type": "application/json" },
   });
   if (!res.ok) {
     throw new Error("hubo un error al eliminar el usuario");
   }
-  localStorage.removeItem(user);
+  localStorage.removeItem("usuario");
   window.location.href = "index.html";
   alert("Cuenta eliminada con éxito");
 
@@ -110,7 +110,7 @@ function esLogeado() {
   } catch (e) {
     localStorage.removeItem("usuario");
     localStorage.removeItem("carrito");
-    usuario = null;
+    usuarios = null;
     logeado = false;
     return false;
   }
@@ -124,6 +124,7 @@ function rellenarDatosUsuario(id) {
   btnLogin.style.display = "";
   btnEntrar.style.display = "none";
   const us = usuarios.find((u) => u.id === id);
+  console.log(us);
   correo.style.display = "block";
   divBotones.style.display = "none";
   iniciarSesion.style.display = "none";
@@ -306,4 +307,3 @@ btnContrasenia.addEventListener("click", () => {
     statusContrasenia.classList.remove("active");
   }
 });
-

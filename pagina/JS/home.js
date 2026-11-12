@@ -39,7 +39,7 @@ async function cargarProductos() {
             <img src="${producto.imagen}" />
             <h3>${producto.nombre}</h3>
             <h2 class="price">${producto.precio}</h2>
-            <p class="discount">${producto.descuento}% de descuento</p>
+            <p class="discount">${producto.descuento} descuento</p>
             <button class="btn-cesta">Anadir a la cesta</button>
         `;
         /*
@@ -110,6 +110,7 @@ function anyadirAlCesta(product) {
     cesta.push(product);
     localStorage.setItem("carrito", JSON.stringify(cesta));
     countCesta.textContent = cesta.length;
+     alert(" se ha anadido"+product.nombre);
 }
 //para el estado del login
 function esLogeado() {

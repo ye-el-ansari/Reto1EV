@@ -170,6 +170,7 @@ fieldset legend {
 
 .card {
   position: relative;
+  justify-content: flex-end;
   display: flex;
   flex-direction: column;
   gap: 12px;
